@@ -94,3 +94,7 @@ This app is meant to help the user quickly and easily add/update reviews on the 
 ## Contact Me
 Email:  jennifer.stemkowski@gmail.com <br>
 GitHub URL:  https://github.com/jenstem
+
+##
+<a id='notes'></a>
+## Notes:
