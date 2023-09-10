@@ -64,3 +64,8 @@ THEN I am signed out of the site\
 ## Installation
 To initialize the app, run command lines, "npm i", "mysql -u root -p", and "source/db/schema.sql".  Then open a new terminal window and enter command lines, "npm run seeds" and "npm start".
 ##
+
+<a id='usage'></a>
+## Usage
+This app is meant to help the user quickly and easily add/update reviews on the music albums that they listen to.
+##
