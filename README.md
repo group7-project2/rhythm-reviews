@@ -85,3 +85,7 @@ This app is meant to help the user quickly and easily add/update reviews on the 
 ![](#) <br>
 *This is a screenshot of *
 ##
+
+[Watch the video!](#) <br>
+*This is the walk through video*
+##
