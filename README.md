@@ -59,3 +59,8 @@ THEN I am able to delete or update my review, and taken back to an updated dashb
 WHEN I click on the logout option in the navigation\
 THEN I am signed out of the site\
 ##
+
+<a id='installation'></a>
+## Installation
+To initialize the app, run command lines, "npm i", "mysql -u root -p", and "source/db/schema.sql".  Then open a new terminal window and enter command lines, "npm run seeds" and "npm start".
+##
