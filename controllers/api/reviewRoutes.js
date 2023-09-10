@@ -1,4 +1,3 @@
-// controllers/api/reviewRoutes.js
 const express = require('express');
 const router = express.Router();
 const { Review } = require('../../models');
@@ -22,11 +21,8 @@ router.get('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
   try {
-    // Implement logic to create a new review and save it to the database
-    // Redirect to the reviews page after successful review creation
     res.redirect('/reviews');
   } catch (error) {
-    // Handle errors when creating a review
     res.render('reviews/create', { error });
   }
 });
