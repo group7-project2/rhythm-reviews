@@ -69,3 +69,7 @@ To initialize the app, run command lines, "npm i", "mysql -u root -p", and "sour
 ## Usage
 This app is meant to help the user quickly and easily add/update reviews on the music albums that they listen to.
 ##
+
+<a id='license'></a>
+## License:  NONE
+##
