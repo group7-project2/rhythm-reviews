@@ -41,7 +41,7 @@ app.use('/reviews', reviewRoutes);
 
 // Define the route for the root path ('/')
 app.get('/', (req, res) => {
-  res.render('layouts/main', { layout: 'main' });
+  res.render('homepage'); // Render the "home" view without specifying a layout
 });
 
 // Sync Sequelize models and start the server
