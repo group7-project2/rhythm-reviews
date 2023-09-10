@@ -98,3 +98,5 @@ GitHub URL:  https://github.com/jenstem
 ##
 <a id='notes'></a>
 ## Notes:
+
+![Photo courtesy of cottonbro studio](https://www.pexels.com/photo/close-up-of-a-man-wearing-eyeglasses-listening-to-music-6700117/)
