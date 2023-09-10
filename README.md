@@ -89,3 +89,8 @@ This app is meant to help the user quickly and easily add/update reviews on the 
 [Watch the video!](#) <br>
 *This is the walk through video*
 ##
+
+<a id='contact'></a>
+## Contact Me
+Email:  jennifer.stemkowski@gmail.com <br>
+GitHub URL:  https://github.com/jenstem
