@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Define the path to your static files (CSS, images, etc.)
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(
@@ -22,7 +21,6 @@ app.use(
   })
 );
 
-// Handlebars setup
 const exphbs = expressHandlebars.create({
   defaultLayout: 'main',
   layoutsDir: path.join(__dirname, 'views/layouts'),
@@ -41,7 +39,7 @@ app.use('/reviews', reviewRoutes);
 
 // Define the route for the root path ('/')
 app.get('/', (req, res) => {
-  res.render('homepage'); // Render the "home" view without specifying a layout
+  res.render('homepage'); 
 });
 
 // Sync Sequelize models and start the server
