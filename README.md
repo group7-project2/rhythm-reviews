@@ -73,3 +73,15 @@ This app is meant to help the user quickly and easily add/update reviews on the 
 <a id='license'></a>
 ## License:  NONE
 ##
+
+<a id='screenshots'></a>
+## Screenshots:
+##
+
+![](#) <br>
+*This is a screenshot of *
+##
+
+![](#) <br>
+*This is a screenshot of *
+##
