@@ -18,10 +18,15 @@ body.homepage-background {
   width: 220px;
 }
 
+.flex-row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .login-form {
   text-align: left;
   max-width: 500px;
-  margin: 0 auto;
+  padding: 25px;
 }
 
 .login-form .form-group {
@@ -57,9 +62,9 @@ body.homepage-background {
 }
 
 .create-account-link {
-  position: absolute;
+  /* position: absolute;
   bottom: 10px;
-  left: 10px;
+  left: 10px; */
   font-size: 14px;
 }
 
@@ -67,7 +72,11 @@ body.homepage-background {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+.search-form-container {
+  margin-top: 250px;
+
 }
 
 .search-form {
@@ -90,4 +99,12 @@ body.homepage-background {
 
 .search-button:hover {
   background-color: #0056b3; 
+}
+
+.album-search-result {
+  display: inline-block;
+  margin: 40px;
+  padding: 20px;
+  background-color: rgba(249, 249, 249, 0.3);
+  border-radius: 12px;
 }
