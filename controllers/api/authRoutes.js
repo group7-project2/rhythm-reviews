@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Registration Page
 router.get('/register', (req, res) => {
-  res.render('auth/createacct'); // Render the create account page
+  res.render('auth/createacct'); 
 });
 
 router.post('/register', async (req, res) => {
