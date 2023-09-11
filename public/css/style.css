@@ -102,9 +102,11 @@ body.homepage-background {
 }
 
 .album-search-result {
+  display: flex;
   display: inline-block;
   margin: 40px;
-  padding: 20px;
+  padding: 25px;
+  width: 11%;
   background-color: rgba(249, 249, 249, 0.3);
   border-radius: 12px;
 }
