@@ -3,15 +3,14 @@ const router = express.Router();
 
 // Registration Page
 router.get('/register', (req, res) => {
-  res.render('auth/register');
+  res.render('auth/createacct'); // Render the create account page
 });
 
 router.post('/register', async (req, res) => {
   try {
-    // Redirect to login page after successful registration
     res.redirect('/auth/login');
   } catch (error) {
-    res.render('auth/register', { error });
+    res.render('auth/createacct', { error });
   }
 });
 
