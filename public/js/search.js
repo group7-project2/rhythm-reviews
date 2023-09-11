@@ -1,19 +1,25 @@
 
+// const form = document.getElementById('search-form');
 
+// form.addEventListener('submit', async (e) => {
+//     e.preventDefault(); // Prevent the default form submission behavior
+    
+//     const formData = new FormData(form);
 
-const url = 'https://theaudiodb.p.rapidapi.com/searchalbum.php?s=babymetal';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '3717db3bafmsh3630d39920bf588p1025c6jsnd065f1276f3c',
-		'X-RapidAPI-Host': 'theaudiodb.p.rapidapi.com'
-	}
-};
+//     try {
+//         const response = await fetch(`${form.action}?artistName=${encodeURIComponent(formData.get("artistName"))}`, {
+//             method: 'GET'
+//         });
 
-// Ashley TODO #2: 
-// Once server-side APIs for audio db created, call them here
-// ex: albums = await fetch("/api/<artist search api>&artistName=<search value>")...
-// show "albums" variable value in html
+//         if (response.ok) {
+//             const responseData = await response.text();
+//             //TODO: display search results in handlebars
+//             console.log(responseData)
+//         }
+//     } catch (error) {
+//         console.log(error.message)
+//     }
+// });
 
-
+//function for choosing album
 
