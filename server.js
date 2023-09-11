@@ -1,6 +1,6 @@
 const express = require('express');
 const session = require('express-session');
-const sequelize = require('./config/connection.js.BKP');
+const sequelize = require('./config/connection.js');
 const expressHandlebars = require('express-handlebars');
 const path = require('path');
 
@@ -24,6 +24,7 @@ app.use(
 const exphbs = expressHandlebars.create({
   defaultLayout: 'main',
   layoutsDir: path.join(__dirname, 'views/layouts'),
+  extname: '.handlebars',
 });
 
 app.engine('handlebars', exphbs.engine);
@@ -52,17 +53,12 @@ const audioDbOptions = {
 };
 
 app.get('/api/artist-search', async (req, res) => {
-
   const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
   const albums = await searchResult.json()
   res.render('results', {albums: albums.album}); 
-  // res.json(data)
-})
-
+});
 
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Server listening on: http://localhost:' + PORT));
 });
-
-
