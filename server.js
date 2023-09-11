@@ -42,7 +42,27 @@ app.get('/', (req, res) => {
   res.render('homepage'); 
 });
 
+const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
+const audioDbOptions = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '3717db3bafmsh3630d39920bf588p1025c6jsnd065f1276f3c',
+		'X-RapidAPI-Host': 'theaudiodb.p.rapidapi.com'
+	}
+};
+
+app.get('/api/artist-search', async (req, res) => {
+
+  const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
+  const albums = await searchResult.json()
+  res.render('results', {albums: albums.album}); 
+  // res.json(data)
+})
+
+
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Server listening on: http://localhost:' + PORT));
 });
+
+
