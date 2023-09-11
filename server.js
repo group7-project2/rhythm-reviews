@@ -54,22 +54,11 @@ const audioDbOptions = {
 app.get('/api/artist-search', async (req, res) => {
 
   const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
-  const data = await searchResult.json()
-  res.json(data)
+  const albums = await searchResult.json()
+  res.render('results', {albums: albums.album}); 
+  // res.json(data)
 })
-// Ashley TODO #1: define routes for audio db
-// #1.1 - create RESTful GET endpoint for artist search
-// ex: "/api/artist-search&artistName=Dethklok"
-// create app.get for artist search that accepts a string query param of artist name and returns JSON of Artist's discography (discography.php?s={Artist_Name})
-// ex: app.get("/api/artist-search"), async (req, res) => ...
-// extract query parm out. ex. const artistName = req.query.artistName --> this stores the "&artistName"
 
-// 2 create app.get for album lookup that accepts an artist string and album string. The album string should come from the above search based on what user selects. Artist should be the same
-// as what the user searched in the box, so it'll be stored in the client side memory.
-// return JSON of single album details (searchalbum.php?s={Artist name}&a={Album name})
-
-// 3 based on which album the user picks, you will now have the album_ID which you can use to directly query the audio db for album lookups based on ID.
-// this ID should be what you store in your DB as an external identifier for the album alongside your PK, or make this be your album PK.
 
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
