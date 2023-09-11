@@ -1,8 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
 
-{{#each reviews}}
-  <div class="review">
-    <h2>{{title}}</h2>
-    <p>{{content}}</p>
-    <p>By {{User.username}}</p>
-  </div>
-{{/each}}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rhythm Reviews</title>
+  {{!--
+  <link rel="stylesheet" href="/css/jass.css"> --}}
+  <link rel="stylesheet" type="text/css" href="../../public/css/style.css">
+</head>
+
+<body class="homepage-background">
+  <header>
+    <!-- ...your header content... -->
+  </header>
+  <main>
+
+    
+    <!-- Add a "Create Account" link here -->
+    {{!-- <div class="flex-row-reverse">
+      <form class="login-form">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Login</button>
+        </div>
+        <p class="create-account-link">Don't have an account? <a href="/auth/register">Create Account</a></p>
+      </form>
+      
+    </div> --}}
+    <div class="search-form-container">
+      <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
+        <input class="search-input" type="text" name="artistName" placeholder="Search...">
+        <button class="search-button" type="submit">Search</button>
+      </form>
+    </div>
+    <div class="search-container">
+      
+      <div>
+        {{{body}}}
+      </div>
+    </div>
+  </main>
+  <footer>
+    <!-- ...your footer content... -->
+  </footer>
+</body>
+</html>
