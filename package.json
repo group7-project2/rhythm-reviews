@@ -1,4 +1,14 @@
 {
+  "name": "user-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "node --watch server.js",
+    "seed": "node seeds/seed.js"
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "connect-session-sequelize": "^7.1.7",
