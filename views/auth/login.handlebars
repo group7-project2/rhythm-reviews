@@ -1,8 +1,27 @@
-<h1>Login</h1>
+{{!-- <h1>Login</h1>
 <form action="/auth/login" method="POST">
   <label for="username">Username:</label>
   <input type="text" id="username" name="username" required>
   <label for="password">Password:</label>
   <input type="password" id="password" name="password" required>
   <button type="submit">Login</button>
-</form>
+</form> --}}
+
+
+<div class="flex-row-reverse">
+      <form class="login-form">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Login</button>
+        </div>
+        <p class="create-account-link">Don't have an account? <a href="/auth/register">Create Account</a></p>
+      </form>
+      
+    </div>
