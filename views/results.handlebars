@@ -1,9 +1,19 @@
+<div class="search-form-container">
+  <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
+    <input class="search-input" type="text" name="artistName" placeholder="Search...">
+    <button class="search-button" type="submit">Search</button>
+  </form>
+</div>
+<div class="login-create-account-link">
+  <p>Already have an account? <a href="/auth/login">Login</a></p>
+  <p>Don't have an account? <a href="/auth/register">Create Account</a></p>
+</div>
 <h1>Albums</h1>
 {{#each albums}}
 
-  <div class="album-search-result">
-    <h5>{{strAlbum}}</h5>
-    <p>{{intYearReleased}}</p>
-     <img style="width:200px" src="{{strAlbumThumb}}" alt="{{strAlbum}}">
-  </div>
+<div class="album-search-result">
+  <h5>{{strAlbum}}</h5>
+  <p>{{intYearReleased}}</p>
+  <img style="width:200px" src="{{strAlbumThumb}}" alt="{{strAlbum}}">
+</div>
 {{/each}}
