@@ -8,6 +8,7 @@
   {{!--
   <link rel="stylesheet" href="/css/jass.css"> --}}
   <link rel="stylesheet" type="text/css" href="../../public/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="homepage-background">
@@ -16,9 +17,9 @@
   </header>
   <main>
 
-    
+
     <!-- Add a "Create Account" link here -->
-    {{!-- <div class="flex-row-reverse">
+    <div class="flex-row-reverse">
       <form class="login-form">
         <div class="form-group">
           <label for="email">Email:</label>
@@ -33,16 +34,16 @@
         </div>
         <p class="create-account-link">Don't have an account? <a href="/auth/register">Create Account</a></p>
       </form>
-      
-    </div> --}}
-    {{!-- <div class="search-form-container">
+
+    </div>
+    <div class="search-form-container">
       <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
         <input class="search-input" type="text" name="artistName" placeholder="Search...">
         <button class="search-button" type="submit">Search</button>
       </form>
     </div>
-    <div class="search-container"> --}}
-      
+    <div class="search-container">
+
       <div>
         {{{body}}}
       </div>
