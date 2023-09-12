@@ -1,14 +1,19 @@
 <div class="search-form-container">
   <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
     <input class="search-input" type="text" name="artistName" placeholder="Search...">
-    <button class="search-button" type="submit">Search</button>
+    <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
   </form>
+  <div class="login-create-account-link">
+        {{#if logged_in}}
+        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/profile">Profile</a></p>
+        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/logout">Logout</a></p>
+        {{/if}}
+        {{#unless logged_in}}
+        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/login">Login</a></p><p class="float text-white">or</p><p class="text-white hover:text-blue-700 underline underline-offset-1"><a href="/auth/register">Create Account</a></p>
+        {{/unless}}
+      </div>
 </div>
-<div class="login-create-account-link">
-  <p>Already have an account? <a href="/auth/login">Login</a></p>
-  <p>Don't have an account? <a href="/auth/register">Create Account</a></p>
-</div>
-<h1>Albums</h1>
+<h1 class="ml-12 text-white text-2xl">Albums</h1>
 {{#each albums}}
 
 <div class="album-search-result">
