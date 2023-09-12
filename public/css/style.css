@@ -130,3 +130,12 @@ body.homepage-background {
   word-wrap: break-word;
   margin-right: .4em;
 }
+
+.top-padding {
+  padding-top: 250px;
+}
+
+.add-flex-center {
+  display: flex;
+  justify-content: center;
+}
