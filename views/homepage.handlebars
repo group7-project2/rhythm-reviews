@@ -16,7 +16,7 @@
   </header>
   <main>
 
-    
+
     <!-- Add a "Create Account" link here -->
     {{!-- <div class="flex-row-reverse">
       <form class="login-form">
@@ -33,7 +33,7 @@
         </div>
         <p class="create-account-link">Don't have an account? <a href="/auth/register">Create Account</a></p>
       </form>
-      
+
     </div> --}}
     <div class="search-form-container">
       <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
@@ -42,7 +42,11 @@
       </form>
     </div>
     <div class="search-container">
-      
+      <div class="login-create-account-link">
+        <p>Already have an account? <a href="/auth/login">Login</a></p>
+        <p>Don't have an account? <a href="/auth/register">Create Account</a></p>
+      </div>
+
       <div>
         {{{body}}}
       </div>
@@ -52,4 +56,5 @@
     <!-- ...your footer content... -->
   </footer>
 </body>
+
 </html>
