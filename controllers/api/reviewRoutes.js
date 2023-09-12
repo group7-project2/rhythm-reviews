@@ -12,28 +12,33 @@ const audioDbOptions = {
 };
 router.get('/album/:id', async (req, res) => {
   try {
-    console.log('pathid',req.params.id)
+    
     const response = await fetch(`${audioDbRootUrl}/album.php?m=${req.params.id}`, audioDbOptions)
     const album = await response.json()
-    console.log(album);
-    res.render('review', {album: album.album, reviews: []})
+    const reviews = await Review.findAll({
+      where: {
+        album_id: req.params.id
+      }
+    });
+    console.log(reviews)
+    res.render('review', {album: album.album, reviews: reviews})
   } catch (error) {
     res.error()
   }
 })
 
 
-// // View Reviews
-// router.get('/', async (req, res) => {
-//   try {
-//     // Fetch and render a list of reviews from the database
-//     const reviews = await Review.findAll();
-//     res.render('reviews/index', { reviews });
-//   } catch (error) {
-//     // Handle errors when fetching reviews
-//     res.status(500).send('Error fetching reviews');
-//   }
-// });
+// View Reviews
+router.get('/', async (req, res) => {
+  try {
+    // Fetch and render a list of reviews from the database
+    const reviews = await Review.findAll();
+    res.render('reviews/index', { reviews });
+  } catch (error) {
+    // Handle errors when fetching reviews
+    res.status(500).send('Error fetching reviews');
+  }
+});
 
 // // Create a Review (requires authentication)
 // router.get('/create', (req, res) => {
