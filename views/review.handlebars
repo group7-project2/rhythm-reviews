@@ -1,3 +1,4 @@
+{{#each album}}
 <div class="selected-album">
     <h5>{{strAlbum}}</h5>
     <p>{{intYearReleased}}</p>
@@ -8,3 +9,5 @@
     <input type="text" name="Description" id="Description" size="20" maxlength="15">
     <button class="add-review" type="submit">Add Review</button>
 </div>
+
+{{/each}}

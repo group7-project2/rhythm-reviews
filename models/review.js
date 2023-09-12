@@ -26,6 +26,11 @@ Review.init(
         key: 'id',
       },
     },
+    album_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: false
+    },
   },
   {
     sequelize,
