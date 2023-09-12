@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const { Review } = require('../../models');
 
+
+router.get('/api/album/:id', async (req, res) => {
+  res.render('/review')
+})
+
+
+
+
 // View Reviews
 router.get('/', async (req, res) => {
   try {
@@ -21,10 +29,12 @@ router.get('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
   try {
-    res.redirect('/reviews');
+    res.redirect('/views/review');
   } catch (error) {
     res.render('reviews/create', { error });
   }
 });
+
+
 
 module.exports = router;
