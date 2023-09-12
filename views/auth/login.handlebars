@@ -1,14 +1,16 @@
-{{!-- <h1>Login</h1>
-<form action="/auth/login" method="POST">
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" required>
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required>
-  <button type="submit">Login</button>
-</form> --}}
-
-
-<div class="flex-row-reverse">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="public/css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+  
+    <div class="flex-row-reverse">
       <form class="login-form">
         <div class="form-group">
           <label for="email">Email:</label>
@@ -23,5 +25,8 @@
         </div>
         <p class="create-account-link">Don't have an account? <a href="/auth/register">Create Account</a></p>
       </form>
-      
     </div>
+    <p class="go-back-link"><a href="/"><< Go Back to Homepage</a></p>
+  </div>
+</body>
+</html>
