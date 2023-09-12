@@ -110,3 +110,18 @@ body.homepage-background {
   background-color: rgba(249, 249, 249, 0.3);
   border-radius: 12px;
 }
+
+.selected-album {
+  display: flex;
+  display: inline-block;
+  margin: 40px;
+  padding: 25px;
+  width: 30%;
+  background-color: rgba(249, 249, 249, 0.3);
+  border-radius: 12px;
+}
+
+.album-reviews {
+  color: white;
+  background-color: rgba(249, 249, 249, 0.3);
+}
