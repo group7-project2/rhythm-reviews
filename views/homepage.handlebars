@@ -14,7 +14,7 @@
       <div class="login-create-account-link">
         {{#if logged_in}}
         <p><a href="/auth/profile">Profile</a></p>
-        <p><a href="/auth/logout">Logout</a></p>
+        <p><a id="logout" href="/auth/logout">Logout</a></p>
         {{/if}}
         {{#unless logged_in}}
         <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/login">Login</a></p><p class="text-blue-600"></p><p class="float text-white text-center">or</p></p><p class="text-white hover:text-blue-700 underline underline-offset-1"><a href="/auth/register">Create Account</a></p>

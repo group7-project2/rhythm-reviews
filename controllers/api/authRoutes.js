@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
       password: req.body.password,
     });
 
-    res.redirect('/auth/login');
+    res.redirect('/');
   } catch (error) {
     res.render('auth/createacct', { error });
   }
@@ -39,6 +39,17 @@ router.post('/login', async (req, res) => {
     }
   } catch (error) {
     res.render('auth/login', { error });
+  }
+});
+
+// Logout User
+router.post('/logout', async (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
