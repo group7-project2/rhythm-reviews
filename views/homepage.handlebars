@@ -16,25 +16,6 @@
   </header>
   <main>
 
-
-    <!-- Add a "Create Account" link here -->
-    {{!-- <div class="flex-row-reverse">
-      <form class="login-form">
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-          <button type="submit">Login</button>
-        </div>
-        <p class="create-account-link">Don't have an account? <a href="/auth/register">Create Account</a></p>
-      </form>
-
-    </div> --}}
     <div class="search-form-container">
       <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
         <input class="search-input" type="text" name="artistName" placeholder="Search...">
@@ -43,8 +24,14 @@
     </div>
     <div class="search-container">
       <div class="login-create-account-link">
+        {{#if logged_in}}
+        <p><a href="/auth/profile">Profile</a></p>
+        <p><a href="/auth/logout">Logout</a></p>
+        {{/if}}
+        {{#unless logged_in}}
         <p>Already have an account? <a href="/auth/login">Login</a></p>
         <p>Don't have an account? <a href="/auth/register">Create Account</a></p>
+        {{/unless}}
       </div>
 
       <div>
@@ -57,4 +44,8 @@
   </footer>
 </body>
 
+{{!-- <!-- add scripts -->
+{{#if userLoggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}} --}}
 </html>
