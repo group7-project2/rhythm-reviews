@@ -1,0 +1,20 @@
+{{#each album}}
+<div class="selected-album">
+    <h5>{{strAlbum}}</h5>
+    <p>{{intYearReleased}}</p>
+    <img style="width:200px" src="{{strAlbumThumb}}" alt="{{strAlbum}}">
+</div>
+<div>
+    <form name="Review" id="album-review"></form>
+    <input type="text" name="Description" id="Description" size="20" maxlength="15">
+    <button class="add-review" type="submit">Add Review</button>
+</div>
+
+{{/each}}
+
+{{#each reviews}}
+<div class="album-reviews">
+    <p>{{dataValues.user_id}}</p>
+    <p>{{dataValues.content}}</p>
+    </div>
+{{/each}}

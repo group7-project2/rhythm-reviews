@@ -2,6 +2,32 @@ const express = require('express');
 const router = express.Router();
 const { Review } = require('../../models');
 
+const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
+const audioDbOptions = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '3717db3bafmsh3630d39920bf588p1025c6jsnd065f1276f3c',
+		'X-RapidAPI-Host': 'theaudiodb.p.rapidapi.com'
+	}
+};
+router.get('/album/:id', async (req, res) => {
+  try {
+    
+    const response = await fetch(`${audioDbRootUrl}/album.php?m=${req.params.id}`, audioDbOptions)
+    const album = await response.json()
+    const reviews = await Review.findAll({
+      where: {
+        album_id: req.params.id
+      }
+    });
+    console.log(reviews)
+    res.render('review', {album: album.album, reviews: reviews})
+  } catch (error) {
+    res.error()
+  }
+})
+
+
 // View Reviews
 router.get('/', async (req, res) => {
   try {
@@ -14,17 +40,19 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a Review (requires authentication)
-router.get('/create', (req, res) => {
-  res.render('reviews/create');
-});
+// // Create a Review (requires authentication)
+// router.get('/create', (req, res) => {
+//   res.render('reviews/create');
+// });
 
-router.post('/create', async (req, res) => {
-  try {
-    res.redirect('/reviews');
-  } catch (error) {
-    res.render('reviews/create', { error });
-  }
-});
+// router.post('/create', async (req, res) => {
+//   try {
+//     res.redirect('/views/review');
+//   } catch (error) {
+//     res.render('reviews/create', { error });
+//   }
+// });
+
+
 
 module.exports = router;
