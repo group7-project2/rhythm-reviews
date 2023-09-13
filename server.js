@@ -53,9 +53,23 @@ const audioDbOptions = {
 };
 
 app.get('/api/artist-search', async (req, res) => {
+
+  const artistName = req.query.artistName;
+
+  
+  if (!artistName || artistName.trim() === '') {
+    // return res.status(400).json({ message: 'Please enter a valid artist name.' });
+   res.status(400).render('homepage', {message: 'Please enter a valid artist name.' });
+  }
+  try{
   const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
   const albums = await searchResult.json()
-  res.render('results', {albums: albums.album}); 
+  
+  res.render('results', {albums: albums.album});
+} catch (error) {
+  res.status(500).render('homepage', {message: 'Error occured while fetching data.' });
+}
+  
 });
 
 // Sync Sequelize models and start the server

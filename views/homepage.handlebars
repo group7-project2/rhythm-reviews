@@ -6,9 +6,12 @@
 
     <div class="search-form-container">
       <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
-        <input class="search-input" type="text" name="artistName" placeholder="Search...">
+        <input id="search-input" class="search-input" type="text" name="artistName" placeholder="Search...">
         <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
       </form>
+      {{#if message}}
+      <p class="text-red-600">{{message}}</p>
+      {{/if}}
     {{!-- </div> --}}
     <div class="search-container"></div>
       <div class="login-create-account-link">
