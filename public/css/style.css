@@ -23,24 +23,28 @@ body.homepage-background {
   flex-direction: row-reverse;
 }
 
-.login-form {
+.login-form .signup-form {
   text-align: left;
   max-width: 500px;
   padding: 25px;
 }
 
-.login-form .form-group {
+.login-form .form-group .signup-form {
   margin-bottom: 10px;
 }
 
-.login-form label {
+.login-form label .signup-form {
   display: block;
   font-weight: bold;
 }
 
 .login-form input[type="text"],
 .login-form input[type="email"],
-.login-form input[type="password"] {
+.login-form input[type="password"],
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"]
+ {
   text-align: left;
   width: 100%;
   padding: 10px;
@@ -88,7 +92,8 @@ body.homepage-background {
 }
 
 .search-button,
-.login-form button {
+.login-form button,
+.signup-form button {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
@@ -129,4 +134,13 @@ body.homepage-background {
   display:inline;
   word-wrap: break-word;
   margin-right: .4em;
+}
+
+.top-padding {
+  padding-top: 250px;
+}
+
+.add-flex-center {
+  display: flex;
+  justify-content: center;
 }
