@@ -9,21 +9,30 @@
         <input class="search-input" type="text" name="artistName" placeholder="Search...">
         <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
       </form>
-    {{!-- </div> --}}
+      {{!--
+    </div> --}}
     <div class="search-container"></div>
-      <div class="login-create-account-link">
-        {{#if logged_in}}
-        <p><a href="/auth/profile">Profile</a></p>
-        <p><a id="logout" href="/auth/logout">Logout</a></p>
-        {{/if}}
-        {{#unless logged_in}}
-        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/login">Login</a></p><p class="text-blue-600"></p><p class="float text-white text-center">or</p></p><p class="text-white hover:text-blue-700 underline underline-offset-1"><a href="/auth/register">Create Account</a></p>
-        {{/unless}}
-      </div>
+    <div class="login-create-account-link">
+      {{#if logged_in}}
+      <p><a href="/profile">Profile</a></p>
+      <p><a id="logout" href="/logout">Logout</a></p>
+      {{/if}}
+      {{#unless logged_in}}
+      {{!-- {{else}} --}}
+      <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a
+          href="/login">Login</a></p>
+      <p class="text-blue-600"></p>
+      <p class="float text-white text-center">or</p>
+      </p>
+      <p class="text-white hover:text-blue-700 underline underline-offset-1"><a href="/register">Create Account</a>
+      </p>
+      {{/unless}}
+      {{!-- {{/if}} --}}
+    </div>
 
-      <div>
-        {{{body}}}
-      </div>
+    <div>
+      {{{body}}}
+    </div>
     </div>
   </main>
   <footer>
@@ -31,8 +40,9 @@
   </footer>
 </body>
 
-{{!-- <!-- add scripts -->
-{{#if userLoggedIn}}
+<!-- add scripts -->
+{{#if logged_in}}
 <script src="/js/logout.js"></script>
-{{/if}} --}}
+{{/if}}
+
 </html>
