@@ -3,13 +3,13 @@
     <input class="search-input" type="text" name="artistName" placeholder="Search...">
     <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
   </form>
-  <div class="login-create-account-link">
+  <div class="login-create-account-link add-flex-center">
         {{#if logged_in}}
         <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/profile">Profile</a></p>
         <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/logout">Logout</a></p>
         {{/if}}
         {{#unless logged_in}}
-        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/login">Login</a></p><p class="float text-white">or</p><p class="text-white hover:text-blue-700 underline underline-offset-1"><a href="/auth/register">Create Account</a></p>
+        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/auth/login">Login</a></p><p class="float text-white text-center">or</p><p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40"><a href="/auth/register">Create Account</a></p>
         {{/unless}}
       </div>
 </div>
