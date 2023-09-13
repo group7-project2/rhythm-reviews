@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 // Registration Page
 router.get('/register', (req, res) => {
-  res.render('auth/createacct');
+  res.render('createacct');
 });
 
 router.post('/register', async (req, res) => {
@@ -16,16 +16,23 @@ router.post('/register', async (req, res) => {
       password: req.body.password,
     });
 
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+
     res.redirect('/');
   } catch (error) {
-    res.render('auth/createacct', { error });
+    res.render('homepage', { error });
   }
 });
 
-// Login Page
-router.get('/login', (req, res) => {
-  res.render('auth/login');
-});
+// // Login Page
+// router.get('/login', (req, res) => {
+//   res.render('login');
+// });
 
 // Login User
 router.post('/login', async (req, res) => {
