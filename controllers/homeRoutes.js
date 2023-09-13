@@ -1,21 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const stylesPath = "../../public/css/style.css";
 // const { User } = require('../../models');
 
 // Registration Page
 router.get('/register', (req, res) => {
-  res.render('createacct');
-});
-
-
-// Registration Page
-router.get('/register', (req, res) => {
-  res.render('createacct');
+  res.render('createacct', {stylesPath: stylesPath});
 });
 
 // Login Page
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', {stylesPath: stylesPath} );
 });
 
 module.exports = router;

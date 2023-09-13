@@ -1,6 +1,6 @@
 <div class="search-form-container">
   <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
-    <input class="search-input" type="text" name="artistName" placeholder="Search...">
+    <input id="search-input" class="search-input" type="text" name="artistName" placeholder="Search...">
     <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
   </form>
   <div class="login-create-account-link add-flex-center">
@@ -19,6 +19,6 @@
 <div class="album-search-result">
   <h5>{{strAlbum}}</h5>
   <p>{{intYearReleased}}</p>
-  <a href="/reviews/album/{{idAlbum}}"><img style="width:200px" src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
+  <a href="/api/reviews/album/{{idAlbum}}"><img style="width:200px" src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
 </div>
 {{/each}}

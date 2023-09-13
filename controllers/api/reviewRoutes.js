@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Review } = require('../../models');
+const stylesPath = "../../../public/css/style.css"
 
 const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
 const audioDbOptions = {
@@ -10,6 +11,27 @@ const audioDbOptions = {
 		'X-RapidAPI-Host': 'theaudiodb.p.rapidapi.com'
 	}
 };
+
+router.get('/artist-search', async (req, res) => {
+
+  const artistName = req.query.artistName;
+
+  
+  if (!artistName || artistName.trim() === '') {
+   res.status(400).render('homepage', {stylesPath: stylesPath, message: 'Please enter a valid artist name.' });
+  }
+
+  try{
+  const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
+  const albums = await searchResult.json()
+  
+  res.render('results', {stylesPath: stylesPath, albums: albums.album});
+} catch (error) {
+  res.status(500).render('homepage', {stylesPath: stylesPath, message: 'Error occured while fetching data.' });
+}
+  
+});
+
 router.get('/album/:id', async (req, res) => {
   try {
     
@@ -21,7 +43,7 @@ router.get('/album/:id', async (req, res) => {
       }
     });
     console.log(reviews)
-    res.render('review', {album: album.album, reviews: reviews})
+    res.render('review', {stylesPath: stylesPath, album: album.album, reviews: reviews})
   } catch (error) {
     res.error()
   }
@@ -29,16 +51,16 @@ router.get('/album/:id', async (req, res) => {
 
 
 // View Reviews
-router.get('/', async (req, res) => {
-  try {
-    // Fetch and render a list of reviews from the database
-    const reviews = await Review.findAll();
-    res.render('reviews/index', { reviews });
-  } catch (error) {
-    // Handle errors when fetching reviews
-    res.status(500).send('Error fetching reviews');
-  }
-});
+// router.get('/', async (req, res) => {
+//   try {
+//     // Fetch and render a list of reviews from the database
+//     const reviews = await Review.findAll();
+//     res.render('reviews/index', { reviews });
+//   } catch (error) {
+//     // Handle errors when fetching reviews
+//     res.status(500).send('Error fetching reviews');
+//   }
+// });
 
 // // Create a Review (requires authentication)
 // router.get('/create', (req, res) => {
