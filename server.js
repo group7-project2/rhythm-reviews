@@ -31,16 +31,20 @@ app.engine('handlebars', exphbs.engine);
 app.set('view engine', 'handlebars');
 
 // Import and use the route files
-const authRoutes = require('./controllers/api/authRoutes');
-const reviewRoutes = require('./controllers/api/reviewRoutes');
+const routes = require('./controllers/index.js');
+app.use(routes);
+// const authRoutes = require('./controllers/api/authRoutes');
+// const reviewRoutes = require('./controllers/api/reviewRoutes');
 
 // Use the routes
-app.use('/auth', authRoutes);
-app.use('/reviews', reviewRoutes);
+// app.use('/auth', authRoutes);
+// app.use('/reviews', reviewRoutes);
 
 // Define the route for the root path ('/')
 app.get('/', (req, res) => {
-  res.render('homepage'); 
+  res.render('homepage', {
+    logged_in: req.session.logged_in
+  }); 
 });
 
 const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
