@@ -3,6 +3,7 @@ const session = require('express-session');
 const sequelize = require('./config/connection.js');
 const expressHandlebars = require('express-handlebars');
 const path = require('path');
+const stylesPath = "../../public/css/style.css"
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -33,6 +34,23 @@ app.set('view engine', 'handlebars');
 // Import and use the route files
 const routes = require('./controllers/index.js');
 app.use(routes);
+
+// Log all routes
+function logRoutes(router, basePath = '') {
+  router.stack.forEach((layer) => {
+    if (layer.route) {
+      const route = basePath + layer.route.path;
+      console.log(`Route: ${route}`);
+    } else if (layer.name === 'router' && layer.handle.stack) {
+      // Recursive call for sub-routers
+      logRoutes(layer.handle, basePath + layer.regexp.source);
+    }
+  });
+}
+
+// Log all routes in the router
+logRoutes(routes);
+
 // const authRoutes = require('./controllers/api/authRoutes');
 // const reviewRoutes = require('./controllers/api/reviewRoutes');
 
@@ -43,37 +61,9 @@ app.use(routes);
 // Define the route for the root path ('/')
 app.get('/', (req, res) => {
   res.render('homepage', {
+    stylesPath: stylesPath,
     logged_in: req.session.logged_in
   }); 
-});
-
-const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
-const audioDbOptions = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '3717db3bafmsh3630d39920bf588p1025c6jsnd065f1276f3c',
-		'X-RapidAPI-Host': 'theaudiodb.p.rapidapi.com'
-	}
-};
-
-app.get('/api/artist-search', async (req, res) => {
-
-  const artistName = req.query.artistName;
-
-  
-  if (!artistName || artistName.trim() === '') {
-    // return res.status(400).json({ message: 'Please enter a valid artist name.' });
-   res.status(400).render('homepage', {message: 'Please enter a valid artist name.' });
-  }
-  try{
-  const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
-  const albums = await searchResult.json()
-  
-  res.render('results', {albums: albums.album});
-} catch (error) {
-  res.status(500).render('homepage', {message: 'Error occured while fetching data.' });
-}
-  
 });
 
 // Sync Sequelize models and start the server

@@ -52,3 +52,12 @@
 //       errorMessage.textContent = 'An error occurred while fetching data.';
 //     }
 //   });
+
+// async function albumReview (albumId) {
+//     try {
+//         const response = await fetch(`/api/reviews/album/${encodeURIComponent(albumId)}`);
+              
+//     } catch (error) {
+//       errorMessage.textContent = 'An error occurred while fetching data.';
+//     }
+// }
