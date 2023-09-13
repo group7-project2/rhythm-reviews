@@ -43,11 +43,12 @@ router.get('/album/:id', async (req, res) => {
       }
     });
     console.log(reviews)
-    res.render('review', {stylesPath: stylesPath, album: album.album, reviews: reviews})
+    res.render('review', {stylesPath: stylesPath, album: album.album, reviews: reviews, logged_in: req.session.logged_in})
   } catch (error) {
     res.error()
   }
 })
+
 
 
 // View Reviews

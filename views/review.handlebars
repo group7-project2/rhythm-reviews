@@ -1,5 +1,5 @@
 <div class="search-form-container">
-  <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
+  <form id="search-form" class="search-form" action="/api/reviews/artist-search" method="GET">
     <input id="search-input" class="search-input" type="text" name="artistName" placeholder="Search...">
     <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
   </form>
@@ -21,9 +21,13 @@
     <img style="width:200px" src="{{strAlbumThumb}}" alt="{{strAlbum}}">
 </div>
 <div>
-    <form name="Review" id="album-review"></form>
-    <input type="text" name="Description" id="Description" size="20" maxlength="15">
-    <button class="add-review" type="submit">Add Review</button>
+    {{!-- <form name="Review" id="album-review"></form>
+    <input type="text" name="Description" id="Description" size="20" maxlength="15"> --}}
+    {{#if logged_in}}
+    <button class="add-review border-2 border-white hover:bg-blue-700" type="submit">Add Review</button>
+     {{else}}
+     <p>Log in to leave a review</p>
+     {{/if}}
 </div>
 
 {{/each}}
