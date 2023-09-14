@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
+const withAuth = require('../../utils/auth')
 
 // Create account
 router.post('/register', async (req, res) => {
@@ -57,6 +58,39 @@ router.get('/logout', async (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.post('/profile/password', withAuth, async (req, res) => {
+  try {
+      const user = await User.findByPk(req.session.user_id);
+
+      // Verify the current password
+      const isValidPassword = await bcrypt.compare(req.body.currentPassword, user.password);
+      if (!isValidPassword) {
+          return res.status(400).render('profile', {
+              user,
+              error: 'Invalid current password',
+          });
+      }
+
+      // Check if the new password and confirmation match
+      if (req.body.newPassword !== req.body.confirmPassword) {
+          return res.status(400).render('profile', {
+              user,
+              error: 'New password and confirmation do not match',
+          });
+      }
+
+      // Hash and update the password
+      const newPasswordHash = await bcrypt.hash(req.body.newPassword, 10);
+      user.password = newPasswordHash;
+      await user.save();
+
+      res.redirect('/profile');
+  } catch (error) {
+      console.error(error);
+      res.status(500).json(error);
   }
 });
 
