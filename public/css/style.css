@@ -23,17 +23,17 @@ body.homepage-background {
   flex-direction: row-reverse;
 }
 
-.login-form .signup-form {
+.login-form .signup-form .profile-form {
   text-align: left;
   max-width: 500px;
   padding: 25px;
 }
 
-.login-form .form-group .signup-form {
+.login-form .form-group .signup-form .profile-form {
   margin-bottom: 10px;
 }
 
-.login-form label .signup-form {
+.login-form label .signup-form .profile-form {
   display: block;
   font-weight: bold;
 }
@@ -43,7 +43,10 @@ body.homepage-background {
 .login-form input[type="password"],
 .signup-form input[type="text"],
 .signup-form input[type="email"],
-.signup-form input[type="password"]
+.signup-form input[type="password"],
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="password"]
  {
   text-align: left;
   width: 100%;
@@ -84,7 +87,8 @@ body.homepage-background {
 .add-review,
 .search-button,
 .login-form button,
-.signup-form button {
+.signup-form button,
+.profile-form button {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
@@ -147,7 +151,7 @@ body.homepage-background {
   transform: translate(-50%, -50%);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   width: 80%;
-  max-width: 600px;
+  max-width: 400px;
 }
 
 .profile-content {
@@ -188,4 +192,3 @@ h1 {
 .user-actions a:hover {
   text-decoration: underline;
 }
-
