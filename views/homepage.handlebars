@@ -17,8 +17,8 @@
     <div class="search-container"></div>
     <div class="login-create-account-link">
       {{#if logged_in}}
-      <p><a href="/profile">Profile</a></p>
-      <p><a id="logout" href="/api/users/logout" >Logout</a></p>
+      <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/profile">Profile</a></p>
+      <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a id="logout" href="/api/users/logout" >Logout</a></p>
       {{/if}}
       {{#unless logged_in}}
       {{!-- {{else}} --}}

@@ -31,6 +31,11 @@ Review.init(
       allowNull: false,
       primaryKey: false
     },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+    }
   },
   {
     sequelize,
