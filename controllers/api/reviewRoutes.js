@@ -51,18 +51,6 @@ router.get('/album/:id', async (req, res) => {
 
 
 
-// View Reviews
-// router.get('/', async (req, res) => {
-//   try {
-//     // Fetch and render a list of reviews from the database
-//     const reviews = await Review.findAll();
-//     res.render('reviews/index', { reviews });
-//   } catch (error) {
-//     // Handle errors when fetching reviews
-//     res.status(500).send('Error fetching reviews');
-//   }
-// });
-
 // // Create a Review (requires authentication)
 // router.get('/create', (req, res) => {
 //   res.render('reviews/create');

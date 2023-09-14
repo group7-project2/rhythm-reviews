@@ -3,11 +3,7 @@ const router = express.Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 
-// Registration Page
-// router.get('/register', (req, res) => {
-//   res.render('createacct');
-// });
-
+// Create account
 router.post('/register', async (req, res) => {
   try {
     const newUser = await User.create({
@@ -15,17 +11,17 @@ router.post('/register', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-    
+
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.logged_in = true;
-      
+
     });
 
     res.render('homepage', {
       stylesPath: stylesPath,
       logged_in: req.session.logged_in
-    }); 
+    });
   } catch (error) {
     res.render('homepage', { error });
   }
@@ -44,7 +40,7 @@ router.post('/login', async (req, res) => {
       res.render('homepage', {
         stylesPath: stylesPath,
         logged_in: req.session.logged_in
-      }); 
+      });
     } else {
       res.render('login', { error: 'Invalid email or password' });
     }
