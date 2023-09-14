@@ -7,35 +7,37 @@
     <div class="search-form-container">
       <form id="search-form" class="search-form" action="/api/reviews/artist-search" method="GET">
         <input id="search-input" class="search-input" type="text" name="artistName" placeholder="Search...">
-        <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
+        <button class="border-2 border-white search-button hover:bg-blue-700" type="submit">Search</button>
       </form>
 
       {{#if message}}
       <p class="text-red-600">{{message}}</p>
       {{/if}}
- 
-    <div class="search-container"></div>
-    <div class="login-create-account-link">
-      {{#if logged_in}}
-      <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/profile">Profile</a></p>
-      <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a id="logout" href="/api/users/logout" >Logout</a></p>
-      {{/if}}
-      {{#unless logged_in}}
-      {{!-- {{else}} --}}
-      <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a
-          href="/login">Login</a></p>
-      <p class="text-blue-600"></p>
-      <p class="float text-white text-center">or</p>
-      </p>
-      <p class="text-white hover:text-blue-700 underline underline-offset-1"><a href="/register">Create Account</a>
-      </p>
-      {{/unless}}
-      {{!-- {{/if}} --}}
-    </div>
 
-    <div>
-      {{{body}}}
-    </div>
+      <div class="search-container"></div>
+      <div class="login-create-account-link">
+        {{#if logged_in}}
+        <p class="text-center text-white underline float hover:text-blue-700 underline-offset-1 ml-14"><a
+            href="/profile">Profile</a></p>
+        <p class="text-center text-white underline float hover:text-blue-700 underline-offset-1 ml-14"><a id="logout"
+            href="/api/users/logout">Logout</a></p>
+        {{/if}}
+        {{#unless logged_in}}
+        {{!-- {{else}} --}}
+        <p class="text-center text-white underline float hover:text-blue-700 underline-offset-1 ml-14"><a
+            href="/login">Login</a></p>
+        <p class="text-blue-600"></p>
+        <p class="text-center text-white float">or</p>
+        </p>
+        <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/register">Create Account</a>
+        </p>
+        {{/unless}}
+        {{!-- {{/if}} --}}
+      </div>
+
+      <div>
+        {{{body}}}
+      </div>
     </div>
   </main>
   <footer>
