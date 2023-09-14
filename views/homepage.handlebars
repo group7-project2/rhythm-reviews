@@ -19,8 +19,11 @@
         {{#if logged_in}}
         <p class="text-center text-white underline float hover:text-blue-700 underline-offset-1 ml-14"><a
             href="/profile">Profile</a></p>
-        <p class="text-center text-white underline float hover:text-blue-700 underline-offset-1 ml-14"><a id="logout"
-            href="/api/users/logout">Logout</a></p>
+        <p class="text-blue-600"></p>
+        <p class="text-center text-white float">or</p>
+        </p>
+        <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/api/users/logout">Logout</a>
+        </p>
         {{/if}}
         {{#unless logged_in}}
         {{!-- {{else}} --}}
