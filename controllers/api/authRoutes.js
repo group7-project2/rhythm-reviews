@@ -4,9 +4,9 @@ const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 
 // Registration Page
-router.get('/register', (req, res) => {
-  res.render('createacct');
-});
+// router.get('/register', (req, res) => {
+//   res.render('createacct');
+// });
 
 router.post('/register', async (req, res) => {
   try {
@@ -15,24 +15,22 @@ router.post('/register', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-
+    
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = newUser.id;
       req.session.logged_in = true;
       
-      res.json({ user: userData, message: 'You are now logged in!' });
     });
 
-    res.redirect('/');
+    res.render('homepage', {
+      stylesPath: stylesPath,
+      logged_in: req.session.logged_in
+    }); 
   } catch (error) {
     res.render('homepage', { error });
   }
 });
 
-// Login Page
-router.get('/login', (req, res) => {
-  res.render('login');
-});
 
 // Login User
 router.post('/login', async (req, res) => {
@@ -55,38 +53,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-// router.post('/login', async (req, res) => {
-//   try {
-//     const userData = await User.findOne({ where: { email: req.body.email } });
-
-//     if (!userData) {
-//       res
-//         .status(400)
-//         .json({ message: 'Incorrect email or password, please try again' });
-//       return;
-//     }
-
-//     const validPassword = await userData.checkPassword(req.body.password);
-
-//     if (!validPassword) {
-//       res
-//         .status(400)
-//         .json({ message: 'Incorrect email or password, please try again' });
-//       return;
-//     }
-
-//     req.session.save(() => {
-//       req.session.user_id = userData.id;
-//       req.session.logged_in = true;
-      
-//       res.json({ user: userData, message: 'You are now logged in!' });
-//     });
-
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
 
 // Logout User
 router.get('/logout', async (req, res) => {
