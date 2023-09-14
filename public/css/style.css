@@ -115,20 +115,13 @@ body.homepage-background {
   display: inline-block;
   margin: 40px;
   padding: 25px;
-  width: 30%;
+  /* width: 30%; */
   background-color: rgba(249, 249, 249, 0.3);
   border-radius: 12px;
 }
 
 .album-reviews {
-  background-color: rgba(249, 249, 249, 0.3);
-}
-
-.float {
-  float:left;
-  display:inline;
-  word-wrap: break-word;
-  margin-right: .4em;
+  background-color: rgba(249, 249, 249, 1.0);
 }
 
 .top-padding {
