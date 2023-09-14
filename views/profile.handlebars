@@ -1,9 +1,9 @@
 <main class="homepage-background add-flex-center">
     <div class="profile-container centered-form">
         <div class="profile-content profile-form">
-            <h1 class="text-center text-white mb-5">User Profile</h1>
-            <div class="user-info mb-10">
-                <h2 class="text-white text-2xl">Welcome, {{username}}!</h2>
+            <h1 class="mb-5 text-center text-white">User Profile</h1>
+            <div class="mb-10 user-info">
+                <h2 class="text-2xl text-white">Welcome, {{username}}!</h2>
                 <p class="text-white">Email: {{email}}</p>
             </div>
             <form action="/profile/password" method="POST" class="password-change-form">
@@ -20,10 +20,10 @@
                     <label for="confirmPassword" class="mb-1 text-white">Confirm New Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
                 </div>
-                <button type="submit" class="search-button text-white border-2 border-white hover:bg-blue-700 mt-5">Save New Password</button>
+                <button type="submit" class="mt-5 text-white border-2 border-white search-button hover:bg-blue-700">Save New Password</button>
             </form>
             <div class="mt-4 user-reviews">
-                <h2 class="text-white text-2xl">Your Album Reviews</h2>
+                <h2 class="text-2xl text-white">Your Album Reviews</h2>
                 <ul>
                     {{#each reviews}}
                     <li class="album-review">
@@ -34,9 +34,10 @@
                 </ul>
             </div>
             <div class="mt-5">
-                <h2 class="text-white mb-10">Actions</h2>
-                <button class="search-button text-white border-2 border-white hover:bg-blue-700 mt-5" id="logout"><a href="/api/users/logout">Logout</a></button>
+                <h2 class="mb-10 text-white">Actions</h2>
+                <button class="mt-5 text-white border-2 border-white search-button hover:bg-blue-700" id="logout"><a href="/api/users/logout">Logout</a></button>
             </div>
+            <p class="mt-5 text-center text-white underline go-back-link hover:text-blue-700 underline-offset-1"><a href="/"><< Go Back to Homepage</a></p>
         </div>
     </div>
 </main>
