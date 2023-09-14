@@ -35,21 +35,21 @@ app.set('view engine', 'handlebars');
 const routes = require('./controllers/index.js');
 app.use(routes);
 
-// Log all routes
-function logRoutes(router, basePath = '') {
-  router.stack.forEach((layer) => {
-    if (layer.route) {
-      const route = basePath + layer.route.path;
-      console.log(`Route: ${route}`);
-    } else if (layer.name === 'router' && layer.handle.stack) {
-      // Recursive call for sub-routers
-      logRoutes(layer.handle, basePath + layer.regexp.source);
-    }
-  });
-}
+// // Log all routes
+// function logRoutes(router, basePath = '') {
+//   router.stack.forEach((layer) => {
+//     if (layer.route) {
+//       const route = basePath + layer.route.path;
+//       console.log(`Route: ${route}`);
+//     } else if (layer.name === 'router' && layer.handle.stack) {
+//       // Recursive call for sub-routers
+//       logRoutes(layer.handle, basePath + layer.regexp.source);
+//     }
+//   });
+// }
 
-// Log all routes in the router
-logRoutes(routes);
+// // Log all routes in the router
+// logRoutes(routes);
 
 // const authRoutes = require('./controllers/api/authRoutes');
 // const reviewRoutes = require('./controllers/api/reviewRoutes');

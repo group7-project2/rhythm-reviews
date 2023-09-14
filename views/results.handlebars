@@ -6,7 +6,7 @@
   <div class="login-create-account-link add-flex-center">
         {{#if logged_in}}
         <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/profile">Profile</a></p>
-        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/logout">Logout</a></p>
+        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/api/users/logout" >Logout</a></p>
         {{/if}}
         {{#unless logged_in}}
         <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/login">Login</a></p><p class="float text-white text-center">or</p><p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40"><a href="/register">Create Account</a></p>

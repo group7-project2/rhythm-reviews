@@ -18,7 +18,7 @@
     <div class="login-create-account-link">
       {{#if logged_in}}
       <p><a href="/profile">Profile</a></p>
-      <p><a id="logout" href="/logout">Logout</a></p>
+      <p><a id="logout" href="/api/users/logout" >Logout</a></p>
       {{/if}}
       {{#unless logged_in}}
       {{!-- {{else}} --}}
@@ -44,8 +44,8 @@
 </body>
 
 <!-- add scripts -->
-{{#if logged_in}}
-<script src="/js/logout.js"></script>
-{{/if}}
+{{!-- {{#if logged_in}}
+<script src="/public/js/logout.js"></script>
+{{/if}} --}}
 
 </html>
