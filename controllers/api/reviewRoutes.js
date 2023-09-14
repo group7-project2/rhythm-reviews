@@ -18,16 +18,16 @@ router.get('/artist-search', async (req, res) => {
 
   
   if (!artistName || artistName.trim() === '') {
-   res.status(400).render('homepage', {stylesPath: stylesPath, message: 'Please enter a valid artist name.' });
+   res.status(400).render('homepage', {stylesPath: stylesPath, message: 'Please enter a valid artist name.', logged_in: req.session.logged_in });
   }
 
   try{
   const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
   const albums = await searchResult.json()
   
-  res.render('results', {stylesPath: stylesPath, albums: albums.album});
+  res.render('results', {stylesPath: stylesPath, albums: albums.album, logged_in: req.session.logged_in});
 } catch (error) {
-  res.status(500).render('homepage', {stylesPath: stylesPath, message: 'Error occured while fetching data.' });
+  res.status(500).render('homepage', {stylesPath: stylesPath, message: 'Error occured while fetching data.', logged_in: req.session.logged_in });
 }
   
 });

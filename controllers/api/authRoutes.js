@@ -29,25 +29,64 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// // Login Page
-// router.get('/login', (req, res) => {
-//   res.render('login');
-// });
+// Login Page
+router.get('/login', (req, res) => {
+  res.render('login');
+});
 
 // Login User
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ where: { email: req.body.email } });
     if (user && bcrypt.compareSync(req.body.password, user.password)) {
-      req.session.logged_in = true;
-      res.redirect('/profile');
+      req.session.save(() => {
+        req.session.user_id = user.id;
+        req.session.logged_in = true;
+      });
+      res.render('homepage', {
+        stylesPath: stylesPath,
+        logged_in: req.session.logged_in
+      }); 
     } else {
-      res.render('auth/login', { error: 'Invalid email or password' });
+      res.render('login', { error: 'Invalid email or password' });
     }
   } catch (error) {
-    res.render('auth/login', { error });
+    res.render('login', { error });
   }
 });
+
+
+// router.post('/login', async (req, res) => {
+//   try {
+//     const userData = await User.findOne({ where: { email: req.body.email } });
+
+//     if (!userData) {
+//       res
+//         .status(400)
+//         .json({ message: 'Incorrect email or password, please try again' });
+//       return;
+//     }
+
+//     const validPassword = await userData.checkPassword(req.body.password);
+
+//     if (!validPassword) {
+//       res
+//         .status(400)
+//         .json({ message: 'Incorrect email or password, please try again' });
+//       return;
+//     }
+
+//     req.session.save(() => {
+//       req.session.user_id = userData.id;
+//       req.session.logged_in = true;
+      
+//       res.json({ user: userData, message: 'You are now logged in!' });
+//     });
+
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 // Logout User
 router.post('/logout', async (req, res) => {
