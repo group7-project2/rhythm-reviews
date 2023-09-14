@@ -5,24 +5,17 @@
   </form>
   <div class="login-create-account-link add-flex-center">
     {{#if logged_in}}
-    <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a
-        href="/profile">Profile</a></p>
-    <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a
-        href="/api/users/logout" >Logout</a></p>
+     <p class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/profile">Profile</a></p><p class="float-left inline break-words mr-1.5 text-white text-center">or</p><p class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40"><a href="/api/users/logout">Logout</a></p>
     {{/if}}
     {{#unless logged_in}}
-    <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a
-        href="/login">Login</a></p>
-    <p class="float text-white text-center">or</p>
-    <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40"><a
-        href="/register">Create Account</a></p>
+    <p class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/login">Login</a></p><p class="float-left inline break-words mr-1.5 text-white text-center">or</p><p class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40"><a href="/register">Create Account</a></p>
     {{/unless}}
   </div>
 </div>
 
 {{#each album}}
 <div class="add-flex-center">
-<div class="selected-album">
+<div class="selected-album h-auto max-w-xs">
   <h5>{{strAlbum}}</h5>
   <p>{{intYearReleased}}</p>
   <img style="width:400px" src="{{strAlbumThumb}}" alt="{{strAlbum}}">
@@ -35,7 +28,6 @@
   <label for="message" class="block mb-2 text-sm font-medium text-gray-900 text-white">Add Your Review Here</label>
   <input id="review-title" type="text" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title your review">
   <textarea id="review-content" maxlength="1000" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3" placeholder="Your thoughts on the album..."></textarea>
-  {{!-- <button id="submit-review" class="add-review search-button border-2 border-white hover:bg-blue-700 mt-5" type="submit">Add Review</button> --}}
   {{/if}}
   {{#unless logged_in}}
   <p>Log in to leave a review</p>
@@ -45,13 +37,15 @@
 <button id="submit-review" class="add-review search-button border-2 border-white bg-blue-600 hover:bg-blue-700 mt-5" type="submit">Add Review</button>
 </div>
 {{#each reviews}}
-<div class="album-reviews">
-  <p>{{dataValues.user.dataValues.username}}</p>
-  <p>{{format_date dataValues.date}}</p>
-  <p>{{dataValues.title}}</p>
-  <p>{{dataValues.content}}</p>
+<p class="text-white mt-5">Your review has been posted:</p>
+<div class="album-reviews mt-5 px-5 py-5 rounded-md  border-2 border-blue-600">
+  <p class="ml-5 mb-2">Username:  {{dataValues.user.dataValues.username}}</p>
+  <p class="ml-5 mb-2">Date:  {{format_date dataValues.date}}</p>
+  <p class="ml-5 mb-2">Title:  {{dataValues.title}}</p>
+  <p class="ml-5 mb-2">Review: {{dataValues.content}}</p>
 </div>
 {{/each}}
+<div class="pb-40"></div>
 
 {{#if logged_in}}
 <script src="/public/js/review.js"></script>
