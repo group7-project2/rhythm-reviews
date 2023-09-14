@@ -147,7 +147,7 @@ body.homepage-background {
   transform: translate(-50%, -50%);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   width: 80%;
-  max-width: 600px;
+  max-width: 400px;
 }
 
 .profile-content {
@@ -188,4 +188,3 @@ h1 {
 .user-actions a:hover {
   text-decoration: underline;
 }
-
