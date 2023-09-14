@@ -1,7 +1,26 @@
-{{username}}
-{{#each reviews}}
-<div class="album-reviews">
-    <p>{{dataValues.user_id}}</p>
-    <p>{{dataValues.content}}</p>
+<main class="homepage-background add-flex-center">
+    <div class="profile-container centered-form">
+        <div class="profile-content">
+            <h1 class="text-center text-white">User Profile</h1>
+            <div class="user-info">
+                <h2 class="text-white">Welcome, {{username}}!</h2>
+                <p class="text-white">Email: {{email}}</p>
+            </div>
+            <div class="user-reviews">
+                <h2 class="text-white">Your Album Reviews</h2>
+                <ul>
+                    {{#each reviews}}
+                    <li class="album-review">
+                        <p class="text-white">Album: {{this.dataValues.user_id}}</p>
+                        <p class="text-white">Review: {{this.dataValues.content}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="user-actions">
+                <h2 class="text-white">Actions</h2>
+                <a class="text-white" id="logout" href="/api/users/logout">Logout</a>
+            </div>
+        </div>
     </div>
-{{/each}}
+</main>
