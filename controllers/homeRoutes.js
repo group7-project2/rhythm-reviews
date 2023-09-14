@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const stylesPath = "../../public/css/style.css";
-// const { User } = require('../../models');
+
 
 // Registration Page
 router.get('/register', (req, res) => {

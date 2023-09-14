@@ -1,12 +1,12 @@
 <div class="search-form-container">
-  <form id="search-form" class="search-form" action="/api/artist-search" method="GET">
+  <form id="search-form" class="search-form" action="/api/reviews/artist-search" method="GET">
     <input id="search-input" class="search-input" type="text" name="artistName" placeholder="Search...">
     <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
   </form>
   <div class="login-create-account-link add-flex-center">
         {{#if logged_in}}
         <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/profile">Profile</a></p>
-        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/logout">Logout</a></p>
+        <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/api/users/logout" >Logout</a></p>
         {{/if}}
         {{#unless logged_in}}
         <p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/login">Login</a></p><p class="float text-white text-center">or</p><p class="float text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40"><a href="/register">Create Account</a></p>

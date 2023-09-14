@@ -3,11 +3,7 @@ const router = express.Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 
-// Registration Page
-router.get('/register', (req, res) => {
-  res.render('createacct');
-});
-
+// Create account
 router.post('/register', async (req, res) => {
   try {
     const newUser = await User.create({
@@ -17,43 +13,48 @@ router.post('/register', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = newUser.id;
       req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
+
     });
 
-    res.redirect('/');
+    res.render('homepage', {
+      stylesPath: stylesPath,
+      logged_in: req.session.logged_in
+    });
   } catch (error) {
     res.render('homepage', { error });
   }
 });
 
-// // Login Page
-// router.get('/login', (req, res) => {
-//   res.render('login');
-// });
 
 // Login User
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ where: { email: req.body.email } });
     if (user && bcrypt.compareSync(req.body.password, user.password)) {
-      req.session.logged_in = true;
-      res.redirect('/profile');
+      req.session.save(() => {
+        req.session.user_id = user.id;
+        req.session.logged_in = true;
+      });
+      res.render('homepage', {
+        stylesPath: stylesPath,
+        logged_in: req.session.logged_in
+      });
     } else {
-      res.render('auth/login', { error: 'Invalid email or password' });
+      res.render('login', { error: 'Invalid email or password' });
     }
   } catch (error) {
-    res.render('auth/login', { error });
+    res.render('login', { error });
   }
 });
 
+
 // Logout User
-router.post('/logout', async (req, res) => {
+router.get('/logout', async (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.status(204).redirect('/');
     });
   } else {
     res.status(404).end();
