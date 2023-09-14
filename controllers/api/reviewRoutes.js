@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Review } = require('../../models');
+const { Review, User } = require('../../models');
 const stylesPath = "../../../public/css/style.css"
 
 const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
@@ -40,29 +40,39 @@ router.get('/album/:id', async (req, res) => {
     const reviews = await Review.findAll({
       where: {
         album_id: req.params.id
-      }
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
     });
-    console.log(reviews)
     res.render('review', {stylesPath: stylesPath, album: album.album, reviews: reviews, logged_in: req.session.logged_in})
   } catch (error) {
-    res.error()
+    console.log(error)
+    res.status(500).send(error)
   }
 })
 
 
-
-// // Create a Review (requires authentication)
-// router.get('/create', (req, res) => {
-//   res.render('reviews/create');
-// });
-
-// router.post('/create', async (req, res) => {
-//   try {
-//     res.redirect('/views/review');
-//   } catch (error) {
-//     res.render('reviews/create', { error });
-//   }
-// });
+router.post('/create', async (req, res) => {
+  try {
+    if (req.session.logged_in) {
+    const newReview = await Review.create({
+      title: req.body.title,
+      content: req.body.content,
+      user_id: req.session.user_id,
+      album_id: req.body.album_id
+    })
+    res.redirect(`/api/reviews/album/${req.body.album_id}`);
+  } else {
+    res.status(401).send("You're not logged in!")
+  }
+  } catch (error) {
+    res.status(500).send(error)
+  }
+});
 
 
 

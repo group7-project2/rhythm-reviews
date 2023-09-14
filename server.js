@@ -3,6 +3,7 @@ const session = require('express-session');
 const sequelize = require('./config/connection.js');
 const expressHandlebars = require('express-handlebars');
 const path = require('path');
+const helpers = require('./utils/helpers');
 const stylesPath = "../../public/css/style.css"
 
 const app = express();
@@ -26,6 +27,7 @@ const exphbs = expressHandlebars.create({
   defaultLayout: 'main',
   layoutsDir: path.join(__dirname, 'views/layouts'),
   extname: '.handlebars',
+  helpers: helpers
 });
 
 app.engine('handlebars', exphbs.engine);
