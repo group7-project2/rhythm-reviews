@@ -23,16 +23,16 @@
                 <button type="submit" class="mt-5 text-white border-2 border-white search-button hover:bg-blue-700">Save New Password</button>
             </form>
             <div class="mt-4 user-reviews">
-                <h2 class="text-2xl text-white">Your Album Reviews</h2>
-                <ul>
-                    {{#each reviews}}
-                    <li class="album-review">
-                        <p class="text-white">Album: {{this.dataValues.user_id}}</p>
-                        <p class="text-white">Review: {{this.dataValues.content}}</p>
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
+                <h2 class="text-white">Your Album Reviews</h2>
+            <ul>
+                {{#each reviews}}
+                <li class="album-review">
+                    <p class="text-white">Date & Time: {{this.date}}</p>
+                    <p class="text-white">Album: {{this.album}}</p>
+                    <p class="text-white">Review: {{this.review}}</p>
+                </li>
+                {{/each}}
+            </ul>
             <div class="mt-5">
                 <h2 class="mb-10 text-white">Actions</h2>
                 <button class="mt-5 text-white border-2 border-white search-button hover:bg-blue-700" id="logout"><a href="/api/users/logout">Logout</a></button>
