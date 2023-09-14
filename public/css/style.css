@@ -84,11 +84,11 @@ body.homepage-background {
   width: 300px;
 }
 
-.add-review,
 .search-button,
 .login-form button,
 .signup-form button,
-.profile-form button {
+.profile-form button,
+.review-form button {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
