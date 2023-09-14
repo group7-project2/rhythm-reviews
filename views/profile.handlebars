@@ -1,29 +1,13 @@
 <main class="homepage-background add-flex-center">
     <div class="profile-container centered-form">
         <div class="profile-content">
-            <h1 class="text-center text-white">User Profile</h1>
-            <div class="user-info">
-                <h2 class="text-white">Welcome, {{username}}!</h2>
+            <h1 class="text-center text-white mb-5">User Profile</h1>
+            <div class="user-info mb-10">
+                <h2 class="text-white text-2xl">Welcome, {{username}}!</h2>
                 <p class="text-white">Email: {{email}}</p>
             </div>
-            <form action="/profile/password" method="POST" class="password-change-form">
-                <h2 class="mb-3 text-white">Change Password</h2>
-                <div class="mb-3 text-left form-group">
-                    <label for="currentPassword" class="mb-1 text-white">Current Password:</label>
-                    <input type="password" id="currentPassword" name="currentPassword" class="form-control" required>
-                </div>
-                <div class="mb-3 text-left form-group">
-                    <label for="newPassword" class="mb-1 text-white">New Password:</label>
-                    <input type="password" id="newPassword" name="newPassword" class="form-control" required>
-                </div>
-                <div class="mb-3 text-left form-group">
-                    <label for="confirmPassword" class="mb-1 text-white">Confirm New Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
-                </div>
-                <button type="submit" class="mt-3 text-center btn btn-primary">Change Password</button>
-            </form>
-            <div class="mt-4 user-reviews">
-                <h2 class="text-white">Your Album Reviews</h2>
+            <div class="user-reviews">
+                <h2 class="text-white text-2xl">Your Album Reviews</h2>
                 <ul>
                     {{#each reviews}}
                     <li class="album-review">
@@ -33,9 +17,9 @@
                     {{/each}}
                 </ul>
             </div>
-            <div class="mt-4 user-actions">
-                <h2 class="text-white">Actions</h2>
-                <a class="text-white" href="/logout">Logout</a>
+            <div>
+                <h2 class="text-white mb-10">Actions</h2>
+                <button class="search-button text-white border-2 border-white hover:bg-blue-700 mt-5" id="logout"><a href="/api/users/logout">Logout</a></button>
             </div>
         </div>
     </div>
