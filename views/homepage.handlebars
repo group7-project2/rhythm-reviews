@@ -6,8 +6,8 @@
 
     <div class="mt-60">
       <form id="search-form" class="text-center" action="/api/reviews/artist-search" method="GET">
-        <input id="search-input" class="search-input" type="text" name="artistName" placeholder="Search...">
-        <button class="border-2 border-white search-button hover:bg-blue-700" type="submit">Search</button>
+        <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName" placeholder="Search...">
+        <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700" type="submit">Search</button>
       </form>
 
       {{#if message}}
