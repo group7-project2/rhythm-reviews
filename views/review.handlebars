@@ -1,7 +1,7 @@
 <div class="mt-60">
   <form id="search-form" class="text-center" action="/api/reviews/artist-search" method="GET">
-    <input id="search-input" class="search-input" type="text" name="artistName" placeholder="Search...">
-    <button class="search-button border-2 border-white hover:bg-blue-700" type="submit">Search</button>
+    <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName" placeholder="Search...">
+    <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700" type="submit">Search</button>
   </form>
   <div class="login-create-account-link add-flex-center">
     {{#if logged_in}}
@@ -34,7 +34,7 @@
   {{/unless}}
 </div>
 <div class="add-flex-center">
-<button id="submit-review" class="add-review search-button border-2 border-white bg-blue-600 hover:bg-blue-700 mt-5" type="submit">Add Review</button>
+<button id="submit-review" class="add-review text-white py-2.5 px-2.5 rounded border-2 border-white bg-blue-600 hover:bg-blue-700 mt-5" type="submit">Add Review</button>
 </div>
 {{#each reviews}}
 <p class="text-white mt-5">Your review has been posted:</p>
