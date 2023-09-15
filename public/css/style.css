@@ -55,41 +55,10 @@ body.homepage-background {
   border-radius: 3px;
 }
 
-
-
-.login-form button:hover {
-  background-color: #0056b3;
-}
-
-.create-account-link {
-  font-size: 14px;
-}
-
 .search-container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.search-input {
-  padding: 10px;
-  width: 300px;
-}
-
-.search-button,
-.login-form button,
-.signup-form button,
-.profile-form button,
-.review-form button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.search-button:hover {
-  background-color: #0056b3;
 }
 
 .album-search-result {
@@ -114,10 +83,6 @@ body.homepage-background {
 
 .album-reviews {
   background-color: rgba(249, 249, 249, 1.0);
-}
-
-.top-padding {
-  padding-top: 250px;
 }
 
 .add-flex-center {
