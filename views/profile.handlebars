@@ -20,24 +20,22 @@
                     <label for="confirmPassword" class="mb-1 text-white">Confirm New Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
                 </div>
-                <button type="submit" class="mt-5 text-white border-2 border-white search-button hover:bg-blue-700">Save New Password</button>
+                <button type="submit" class="mt-5 text-white py-2.5 px-2.5 rounded border-2 border-white bg-blue-600 hover:bg-blue-700">Save New Password</button>
             </form>
             <div class="mt-4 user-reviews">
-                <h2 class="text-white">Your Album Reviews</h2>
-            <ul>
-                {{#each reviews}}
-                <li class="album-review">
-                    <img style="width:200px" src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
-                    <p class="text-white">Date & Time: {{this.date}}</p>
-                    <img src="{{strAlbumThumb}}" alt="Album Thumbnail" class="album-thumbnail">
-                    <p class="text-white">Album: {{this.album}}</p>
-                    <p class="text-white">Review: {{this.review}}</p>
-                </li>
-                {{/each}}
-            </ul>
+                <h2 class="text-2xl text-white">Your Album Reviews</h2>
+                <ul>
+                    {{#each reviews}}
+                    <li class="album-review">
+                        <p class="text-white">Album: {{this.dataValues.user_id}}</p>
+                        <p class="text-white">Review: {{this.dataValues.content}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
             <div class="mt-5">
                 <h2 class="mb-10 text-white">Actions</h2>
-                <button class="mt-5 text-white border-2 border-white search-button hover:bg-blue-700" id="logout"><a href="/api/users/logout">Logout</a></button>
+                <button class="mt-5 text-white py-2.5 px-2.5 rounded border-2 border-white bg-blue-600 hover:bg-blue-700" id="logout"><a href="/api/users/logout">Logout</a></button>
             </div>
             <p class="mt-5 text-center text-white underline go-back-link hover:text-blue-700 underline-offset-1"><a href="/"><< Go Back to Homepage</a></p>
         </div>
