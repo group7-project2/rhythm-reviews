@@ -3,6 +3,7 @@ const router = express.Router();
 const stylesPath = "../../public/css/style.css";
 const { User, Review } = require('../models');
 const withAuth = require('../utils/auth')
+const {  getAlbumById } = require('./audioDB.js')
 
 // Registration Page
 router.get('/register', (req, res) => {
@@ -30,6 +31,15 @@ router.get('/profile', withAuth, async (req, res) => {
         user_id: req.session.user_id
       },
     });
+    for (const review of userReviews) {
+      const album = await getAlbumById(review.album_id)
+      try {
+        console.log(album.album[0].strAlbumThumb)
+        review.strAlbumThumb = album.album[0].strAlbumThumb
+      } catch (error) {
+        console.error(error);
+      }
+    }
     res.render('profile', {
       reviews: userReviews,
       username: user.username,
