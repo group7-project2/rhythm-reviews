@@ -3,15 +3,17 @@ const router = express.Router();
 const { Review, User } = require('../../models');
 const withAuth = require('../../utils/auth')
 const stylesPath = "../../../public/css/style.css"
+const { getAlbumsByArtist, getAlbumById } = require('../audioDB.js')
+// const getAlbumById = require('../audioDB.js')
 
-const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
-const audioDbOptions = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '3717db3bafmsh3630d39920bf588p1025c6jsnd065f1276f3c',
-		'X-RapidAPI-Host': 'theaudiodb.p.rapidapi.com'
-	}
-};
+// const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
+// const audioDbOptions = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': '3717db3bafmsh3630d39920bf588p1025c6jsnd065f1276f3c',
+// 		'X-RapidAPI-Host': 'theaudiodb.p.rapidapi.com'
+// 	}
+// };
 
 router.get('/artist-search', async (req, res) => {
 
@@ -23,9 +25,9 @@ router.get('/artist-search', async (req, res) => {
   }
 
   try{
-  const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
-  const albums = await searchResult.json()
-  
+  // const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${req.query.artistName}`, audioDbOptions)
+  // const albums = await searchResult.json()
+  const albums = await getAlbumsByArtist (req.query.artistName)
   res.render('results', {stylesPath: stylesPath, albums: albums.album, logged_in: req.session.logged_in});
 } catch (error) {
   res.status(500).render('homepage', {stylesPath: stylesPath, message: 'Error occured while fetching data.', logged_in: req.session.logged_in });
@@ -36,8 +38,9 @@ router.get('/artist-search', async (req, res) => {
 router.get('/album/:id', async (req, res) => {
   try {
     
-    const response = await fetch(`${audioDbRootUrl}/album.php?m=${req.params.id}`, audioDbOptions)
-    const album = await response.json()
+    // const response = await fetch(`${audioDbRootUrl}/album.php?m=${req.params.id}`, audioDbOptions)
+    // const album = await response.json()
+    const album = await getAlbumById (req.params.id)
     const reviews = await Review.findAll({
       where: {
         album_id: req.params.id
