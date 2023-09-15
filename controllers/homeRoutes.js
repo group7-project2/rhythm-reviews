@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const stylesPath = "../../public/css/style.css";
-const { User } = require('../models');
+const { User, Review } = require('../models');
 const withAuth = require('../utils/auth')
 
 // Registration Page
@@ -20,15 +20,18 @@ router.get('/profile', withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
     });
-
     if (!userData) {
       res.status(404).json({ message: 'User not found' });
       return;
     }
-
     const user = userData.get({ plain: true });
-
+    const userReviews = await Review.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+    });
     res.render('profile', {
+      reviews: userReviews,
       username: user.username,
       email: user.email,
       logged_in: true,
