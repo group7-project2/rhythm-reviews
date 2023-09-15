@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Review, User } = require('../../models');
+const withAuth = require('../../utils/auth')
 const stylesPath = "../../../public/css/style.css"
 
 const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
@@ -56,9 +57,8 @@ router.get('/album/:id', async (req, res) => {
 })
 
 
-router.post('/create', async (req, res) => {
+router.post('/create', withAuth, async (req, res) => {
   try {
-    if (req.session.logged_in) {
     const newReview = await Review.create({
       title: req.body.title,
       content: req.body.content,
@@ -66,9 +66,6 @@ router.post('/create', async (req, res) => {
       album_id: req.body.album_id
     })
     res.redirect(`/api/reviews/album/${req.body.album_id}`);
-  } else {
-    res.status(401).send("You're not logged in!")
-  }
   } catch (error) {
     res.status(500).send(error)
   }
