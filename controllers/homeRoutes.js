@@ -7,12 +7,12 @@ const {  getAlbumById } = require('./audioDB.js')
 
 // Registration Page
 router.get('/register', (req, res) => {
-  res.render('createacct', {stylesPath: stylesPath});
+  return res.render('createacct', {stylesPath: stylesPath});
 });
 
 // Login Page
 router.get('/login', (req, res) => {
-  res.render('login', {stylesPath: stylesPath} );
+  return res.render('login', {stylesPath: stylesPath} );
 });
 
 // Profile Page
@@ -22,8 +22,8 @@ router.get('/profile', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
     });
     if (!userData) {
-      res.status(404).json({ message: 'User not found' });
-      return;
+      return res.status(404).json({ message: 'User not found' });
+      
     }
     const user = userData.get({ plain: true });
     const userReviews = await Review.findAll({
@@ -40,7 +40,7 @@ router.get('/profile', withAuth, async (req, res) => {
         console.error(error);
       }
     }
-    res.render('profile', {
+    return res.render('profile', {
       reviews: userReviews,
       username: user.username,
       email: user.email,
@@ -48,7 +48,7 @@ router.get('/profile', withAuth, async (req, res) => {
       stylesPath: stylesPath,
     });
   } catch (error) {
-    res.status(500).json(error);
+    return res.status(500).json(error);
   }
 });
 

@@ -19,12 +19,12 @@ router.post('/register', async (req, res) => {
 
     });
 
-    res.render('homepage', {
+    return res.render('homepage', {
       stylesPath: stylesPath,
       logged_in: req.session.logged_in
     });
   } catch (error) {
-    res.render('homepage', { error });
+    return res.render('homepage', { error });
   }
 });
 
@@ -48,15 +48,15 @@ router.post('/login', async (req, res) => {
         delete req.session.newPassword;
       }
 
-      res.render('homepage', {
+      return res.render('homepage', {
         stylesPath: stylesPath,
         logged_in: req.session.logged_in
       });
     } else {
-      res.render('login', { error: 'Invalid email or password' });
+      return res.render('login', { error: 'Invalid email or password' });
     }
   } catch (error) {
-    res.render('login', { error });
+    return res.render('login', { error });
   }
 });
 
@@ -64,10 +64,10 @@ router.post('/login', async (req, res) => {
 router.get('/logout', async (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(204).redirect('/');
+      return res.status(204).redirect('/');
     });
   } else {
-    res.status(404).end();
+    return res.status(404).end();
   }
 });
 
@@ -99,7 +99,7 @@ router.post('/profile/password', withAuth, async (req, res) => {
       res.redirect('/profile');
   } catch (error) {
       console.error(error);
-      res.status(500).json(error);
+      return res.status(500).json(error);
   }
 });
 
