@@ -3,6 +3,7 @@ const router = express.Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 const withAuth = require('../../utils/auth')
+const stylesPath = "../../../public/css/style.css"
 
 // Create account
 router.post('/register', async (req, res) => {
@@ -19,12 +20,12 @@ router.post('/register', async (req, res) => {
 
     });
 
-    res.render('homepage', {
+    return res.render('homepage', {
       stylesPath: stylesPath,
       logged_in: req.session.logged_in
     });
   } catch (error) {
-    res.render('homepage', { error });
+    return res.render('homepage', { error });
   }
 });
 
@@ -32,6 +33,9 @@ router.post('/register', async (req, res) => {
 // Login User
 router.post('/login', async (req, res) => {
   try {
+    if (!req.body.email || !req.body.password) {
+      return res.status(400).send('You need to provide an email and password');
+    }
     const user = await User.findOne({ where: { email: req.body.email } });
     if (user && bcrypt.compareSync(req.body.password, user.password)) {
       req.session.save(() => {
@@ -48,15 +52,16 @@ router.post('/login', async (req, res) => {
         delete req.session.newPassword;
       }
 
-      res.render('homepage', {
+      return res.render('homepage', {
         stylesPath: stylesPath,
         logged_in: req.session.logged_in
       });
     } else {
-      res.render('login', { error: 'Invalid email or password' });
+      return res.status(400).json({ message: 'Invalid email or password'});
     }
   } catch (error) {
-    res.render('login', { error });
+    console.error(error);
+    return res.status(500).send(error)
   }
 });
 
@@ -64,10 +69,10 @@ router.post('/login', async (req, res) => {
 router.get('/logout', async (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(204).redirect('/');
+      return res.status(204).redirect('/');
     });
   } else {
-    res.status(404).end();
+    return res.status(404).end();
   }
 });
 
@@ -99,7 +104,7 @@ router.post('/profile/password', withAuth, async (req, res) => {
       res.redirect('/profile');
   } catch (error) {
       console.error(error);
-      res.status(500).json(error);
+      return res.status(500).json(error);
   }
 });
 

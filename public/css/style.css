@@ -142,3 +142,8 @@ h1 {
 .user-actions a:hover {
   text-decoration: underline;
 }
+
+.hidden {
+  display: none;
+}
+

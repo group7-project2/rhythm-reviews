@@ -1,6 +1,5 @@
-const loginFormHandler = async (event) => {
-    event.preventDefault();
-  console.log("logging in")
+async function loginFormHandler(event) {
+  
     // Collect values from the login form
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
@@ -17,11 +16,13 @@ const loginFormHandler = async (event) => {
         // If successful, redirect the browser to the profile page
         document.location.replace('/');
       } else {
-        alert(response.statusText);
+        
+        const errorMessage = document.querySelector('#api-message')
+        const responseJson = await response.json()
+        errorMessage.textContent = responseJson.message
+        errorMessage.classList.remove('hidden')
       }
     }
   };
   
-  document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+  
