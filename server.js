@@ -5,6 +5,7 @@ const expressHandlebars = require('express-handlebars');
 const path = require('path');
 const helpers = require('./utils/helpers');
 const stylesPath = "../../public/css/style.css"
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -20,8 +21,18 @@ app.use(
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    }),
+    cookie: {
+      maxAge: 300000,
+      httpOnly: true,
+      secure: false,
+      sameSite: 'strict',
+    },
   })
 );
+
 
 const exphbs = expressHandlebars.create({
   defaultLayout: 'main',
