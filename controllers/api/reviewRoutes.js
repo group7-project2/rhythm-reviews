@@ -74,6 +74,45 @@ router.post('/create', withAuth, async (req, res) => {
   }
 });
 
+// Delete Review route
+// router.delete('/user/review/:id', async (req, res) => {
+//   try {
+//     const reviewId = req.params.id;
 
+//     const review = await Review.findByPk(reviewId);
+
+//     if (!review) {
+//       res.status(404).json({ error: 'Review not found' });
+//       return;
+//     }
+
+//     await review.destroy();
+
+//     res.status(204).send();
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const reviewId = await Review.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!reviewId) {
+      res.status(404).json({ message: 'No project found with this id!' });
+      return;
+    }
+
+    res.status(200).json(reviewId);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
