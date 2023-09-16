@@ -77,14 +77,14 @@ router.post('/create', withAuth, async (req, res) => {
 
 router.put('/update', withAuth, async (req, res) => {
   try{
-    const updateReviewData = await Review.findByPk(req.body.id)
-    const updateReview = updateReviewData.get({ plain: true })
+    const updateReview = await Review.findByPk(req.body.id)
     updateReview.date = new Date()
     updateReview.title = req.body.title
     updateReview.content = req.body.content
     await updateReview.save();
-  }catch {
-
+    res.status(200).send()
+  }catch (error) {
+    res.status(500).send(error)
   }
 })
 
