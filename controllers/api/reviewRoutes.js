@@ -74,6 +74,7 @@ router.post('/create', withAuth, async (req, res) => {
   }
 });
 
+
 router.put('/update', withAuth, async (req, res) => {
   try{
     const updateReviewData = await Review.findByPk(req.body.id)
@@ -88,5 +89,24 @@ router.put('/update', withAuth, async (req, res) => {
 })
 
 
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const reviewId = await Review.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!reviewId) {
+      res.status(404).json({ message: 'No project found with this id!' });
+      return;
+    }
+
+    res.status(200).json(reviewId);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
