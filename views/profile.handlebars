@@ -34,6 +34,25 @@
                         <p class="mb-2 ml-5">Title: {{dataValues.title}}</p>
                         <p class="mb-2 ml-5">Review: {{dataValues.content}}</p>
                     </li>
+                    <div>
+                        <div id="update-review-form-{{dataValues.id}}" class="hidden">
+                            <label for="message" class="block mb-2 text-sm font-medium text-white text-gray-900">Add
+                                Your Review Here</label>
+                            <input id="review-title-{{dataValues.id}}" type="text"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Title your review">
+                            <textarea id="review-content-{{dataValues.id}}" maxlength="1000" rows="4"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3"
+                                placeholder="Your thoughts on the album..."></textarea>
+                            <button id="save-review-{{dataValues.id}}" type="button"
+                                onclick="showUpdateFields(event, {{dataValues.id}})">Save</button>
+                            <button id="cancel-review-{{dataValues.id}}" type="button"
+                                onclick="cancelUpdateReview({{dataValues.id}})">Cancel</button>
+                        </div>
+
+                        <button id="update-review-{{dataValues.id}}" type="button"
+                            onclick="showUpdateFields(event, {{dataValues.id}})">Update</button>
+                    </div>
                     {{/each}}
             </div>
             <div class="mt-5">
@@ -51,3 +70,4 @@
 </main>
 
 <script src="/public/js/password.js"></script>
+<script src="/public/js/profile.js"></script>
