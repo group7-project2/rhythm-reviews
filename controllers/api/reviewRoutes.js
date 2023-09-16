@@ -63,14 +63,23 @@ router.post('/create', withAuth, async (req, res) => {
 
 router.put('/update', withAuth, async (req, res) => {
   try {
+    if (!req.body.id || !req.body.title || !req.body.content) {
+      return res.status(400).send("Missing required field in request")
+    }
+
     const updateReview = await Review.findByPk(req.body.id)
-    updateReview.date = new Date()
-    updateReview.title = req.body.title
-    updateReview.content = req.body.content
-    await updateReview.save();
-    res.status(200).send()
+    
+    if (!updateReview) {
+      return res.status(400).send("Invalid review id")
+    } else {
+      updateReview.date = new Date()
+      updateReview.title = req.body.title
+      updateReview.content = req.body.content
+      await updateReview.save();
+      return res.status(200).send()
+    }
   } catch (error) {
-    res.status(500).send(error)
+    return res.status(500).send(error)
   }
 })
 
@@ -85,7 +94,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!reviewId) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: 'No Review found with this id!' });
       return;
     }
 
