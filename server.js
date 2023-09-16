@@ -1,10 +1,11 @@
+const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const sequelize = require('./config/connection.js');
 const expressHandlebars = require('express-handlebars');
-const path = require('path');
 const helpers = require('./utils/helpers');
 const stylesPath = "../../public/css/style.css"
+
+const sequelize = require('./config/connection.js');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
@@ -54,7 +55,7 @@ app.get('/', (req, res) => {
   res.render('homepage', {
     stylesPath: stylesPath,
     logged_in: req.session.logged_in
-  }); 
+  });
 });
 
 
