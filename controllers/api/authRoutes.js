@@ -3,6 +3,7 @@ const router = express.Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 const withAuth = require('../../utils/auth')
+const stylesPath = "../../../public/css/style.css"
 
 // Create account
 router.post('/register', async (req, res) => {
@@ -32,6 +33,9 @@ router.post('/register', async (req, res) => {
 // Login User
 router.post('/login', async (req, res) => {
   try {
+    if (!req.body.email || !req.body.password) {
+      return res.status(400).send('You need to provide an email and password');
+    }
     const user = await User.findOne({ where: { email: req.body.email } });
     if (user && bcrypt.compareSync(req.body.password, user.password)) {
       req.session.save(() => {
@@ -53,10 +57,11 @@ router.post('/login', async (req, res) => {
         logged_in: req.session.logged_in
       });
     } else {
-      return res.render('login', { error: 'Invalid email or password' });
+      return res.status(400).json({ message: 'Invalid email or password'});
     }
   } catch (error) {
-    return res.render('login', { error });
+    console.error(error);
+    return res.status(500).send(error)
   }
 });
 
