@@ -1,5 +1,5 @@
-<main class="homepage-background add-flex-center">
-    <div class="profile-container centered-form">
+<div class="mt-30 profile-container centered-form">
+    <div class="profile-content profile-form text-black">
         <div class="profile-content profile-form">
             <h1 class="mb-5 text-center text-white">User Profile</h1>
             <div class="mb-10 user-info">
@@ -35,9 +35,9 @@
                         <p class="mb-2 ml-5"><strong><u>Review:</u></strong> {{dataValues.content}}</p>
                         <a href="#" class="delete-review-link" data-review-id="{{dataValues.id}}">
                             <span
-                                class="inline-block px-1 py-1 mt-2 mr-3 text-xs text-white transition-colors duration-300 ease-in-out bg-blue-400 border-2 border-black rounded hover:bg-blue-700">Delete</span>
+                                class="inline-block px-1 py-1 mt-2 mr-3 text-xs text-white transition-colors duration-300 ease-in-out bg-blue-600 border-2 border-black rounded hover:bg-blue-700 box-border h-51 w-20">Delete</span>
                         </a>
-                    
+
                     <div>
                         <div id="update-review-form-{{dataValues.id}}" class="hidden">
                             <label for="message" class="block mb-2 text-sm font-medium text-white text-gray-900">Edit
@@ -48,13 +48,13 @@
                             <textarea id="review-content-{{dataValues.id}}" maxlength="1000" rows="4"
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3"
                                 placeholder="Your thoughts on the album..."></textarea>
-                            <button id="save-review-{{dataValues.id}}" type="button"
+                            <button id="save-review-{{dataValues.id}}" type="button" class="inline-block px-1 py-1 mt-2 mr-3 text-xs text-white transition-colors duration-300 ease-in-out bg-blue-600 border-2 border-black rounded hover:bg-blue-700 mt-5 box-border h-51 w-20"
                                 onclick="saveUpdatedReview({{dataValues.id}})">Save</button>
-                            <button id="cancel-review-{{dataValues.id}}" type="button"
+                            <button id="cancel-review-{{dataValues.id}}" type="button" class="inline-block px-1 py-1 mt-2 mr-3 text-xs text-white transition-colors duration-300 ease-in-out bg-blue-600 border-2 border-black rounded hover:bg-blue-700 box-border h-51 w-20"
                                 onclick="cancelUpdateReview({{dataValues.id}})">Cancel</button>
                         </div>
 
-                        <button id="update-review-{{dataValues.id}}" type="button"
+                        <button id="update-review-{{dataValues.id}}" type="button" class="inline-block px-1 py-1 mt-2 mr-3 text-xs text-white transition-colors duration-300 ease-in-out bg-blue-600 border-2 border-black rounded hover:bg-blue-700 box-border h-51 w-20"
                             onclick="showUpdateFields(event, {{dataValues.id}})">Update</button>
                     </div>
                     </li>
@@ -62,9 +62,9 @@
                 </ul>
             </div>
             <div class="mt-5">
-                
+
                 <button
-                    class="mt-5 text-white py-2.5 px-2.5 rounded border-2 border-white bg-blue-600 hover:bg-blue-700"
+                    class="mt-5 text-white py-2.5 px-2.5 mr-2 rounded border-2 border-white bg-blue-600 hover:bg-blue-700"
                     id="logout"><a href="/api/users/logout">Logout</a></button>
             </div>
             <p class="mt-5 text-center text-white underline go-back-link hover:text-blue-700 underline-offset-1"><a
@@ -73,11 +73,10 @@
             </p>
         </div>
     </div>
-</main>
+</div>
 
 <script src="/public/js/password.js"></script>
 
 <script src="/public/js/profile.js"></script>
 
 <script src="/public/js/delete.js"></script>
-
