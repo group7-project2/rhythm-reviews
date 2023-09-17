@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-app.set("trust proxy", 1)
+
 
 // app.use(
 //   session({
@@ -37,20 +37,17 @@ app.set("trust proxy", 1)
 //   })
 // );
 
-const sess = {
-  secret: "Super secret secret",
-  cookie: {
-    // Session expiration is set to 5 minutes
-    expires: 5 * 60 * 1000,
-  },
+app.set('trust proxy', 1)
+app.use(session({
   resave: false,
   saveUninitialized: true,
-  // store: new SequelizeStore({
-  //   db: sequelize,
-  // }),
-};
+  secret: 'your secret text',
+  cookie: {
+    secure: true
+  }
+}))
 
-app.use(session(sess));
+
 
 
 const exphbs = expressHandlebars.create({

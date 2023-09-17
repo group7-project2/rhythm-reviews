@@ -46,13 +46,13 @@ router.post('/login', async (req, res) => {
       });
 
       // Check if there's a newPassword in the session
-      // if (req.session.newPassword) {
-      //   const newPasswordHash = bcrypt.hashSync(req.session.newPassword, 10);
-      //   user.password = req.session.password;
-      //   await user.save();
+      if (req.session.newPassword) {
+        const newPasswordHash = bcrypt.hashSync(req.session.newPassword, 10);
+        user.password = req.session.password;
+        await user.save();
 
-      //   delete req.session.newPassword;
-      // }
+        delete req.session.newPassword;
+      }
       return res.render('homepage', {
         stylesPath: stylesPath,
         logged_in: req.session.logged_in
