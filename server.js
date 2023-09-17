@@ -1,11 +1,10 @@
-const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const sequelize = require('./config/connection.js');
 const expressHandlebars = require('express-handlebars');
+const path = require('path');
 const helpers = require('./utils/helpers');
 const stylesPath = "../../public/css/style.css"
-
-const sequelize = require('./config/connection.js');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
@@ -17,37 +16,22 @@ app.use(express.json());
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-
-// app.use(
-//   session({
-//     secret: 'your_secret_key',
-//     resave: false,
-//     saveUninitialized: true,
-//     store: new SequelizeStore({
-//       db: sequelize
-//     }),
-//     proxy: true,
-//     // name: "rhythm-reviews",
-//     cookie: {
-//       maxAge: 300000,
-//       httpOnly: true,
-//       secure: true,
-//       sameSite: 'none',
-//     },
-//   })
-// );
-
-app.set('trust proxy', 1)
-app.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: 'your secret text',
-  cookie: {
-    secure: true
-  }
-}))
-
-
+app.use(
+  session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    }),
+    cookie: {
+      maxAge: 300000,
+      httpOnly: true,
+      secure: false,
+      sameSite: 'strict',
+    },
+  })
+);
 
 
 const exphbs = expressHandlebars.create({
@@ -70,9 +54,8 @@ app.get('/', (req, res) => {
   res.render('homepage', {
     stylesPath: stylesPath,
     logged_in: req.session.logged_in
-  });
+  }); 
 });
-
 
 
 // Sync Sequelize models and start the server
