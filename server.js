@@ -18,24 +18,39 @@ app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set("trust proxy", 1)
 
-app.use(
-  session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize
-    }),
-    proxy: true,
-    // name: "rhythm-reviews",
-    cookie: {
-      maxAge: 300000,
-      httpOnly: true,
-      secure: true,
-      sameSite: 'none',
-    },
-  })
-);
+// app.use(
+//   session({
+//     secret: 'your_secret_key',
+//     resave: false,
+//     saveUninitialized: true,
+//     store: new SequelizeStore({
+//       db: sequelize
+//     }),
+//     proxy: true,
+//     // name: "rhythm-reviews",
+//     cookie: {
+//       maxAge: 300000,
+//       httpOnly: true,
+//       secure: true,
+//       sameSite: 'none',
+//     },
+//   })
+// );
+
+const sess = {
+  secret: "Super secret secret",
+  cookie: {
+    // Session expiration is set to 5 minutes
+    expires: 5 * 60 * 1000,
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
 
 
 const exphbs = expressHandlebars.create({
