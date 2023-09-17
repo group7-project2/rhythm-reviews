@@ -25,12 +25,6 @@ app.use(
     store: new SequelizeStore({
       db: sequelize
     }),
-    cookie: {
-      maxAge: 300000,
-      httpOnly: true,
-      secure: false,
-      sameSite: 'strict',
-    },
   })
 );
 
