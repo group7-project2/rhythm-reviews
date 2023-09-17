@@ -1,10 +1,4 @@
-<body class="homepage-background">
-  <header>
-    <!-- ...your header content... -->
-  </header>
-  <main>
-
-    <div class="mt-60">
+<div class="mt-60">
       <form id="search-form" class="text-center" action="/api/reviews/artist-search" method="GET">
         <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName" placeholder="Search...">
         <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700" type="submit">Search</button>
@@ -26,7 +20,7 @@
         </p>
         {{/if}}
         {{#unless logged_in}}
-        
+
         <p class="text-center text-white underline float-left inline break-words mr-1.5 hover:text-blue-700 underline-offset-1 ml-14"><a
             href="/login">Login</a></p>
         <p class="text-blue-600"></p>
@@ -35,17 +29,5 @@
         <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/register">Create Account</a>
         </p>
         {{/unless}}
-        
-      </div>
-
-      <div>
-        {{{body}}}
       </div>
     </div>
-  </main>
-  <footer>
-    <!-- ...your footer content... -->
-  </footer>
-</body>
-
-</html>
