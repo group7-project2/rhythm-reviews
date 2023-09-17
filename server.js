@@ -26,6 +26,7 @@ app.use(
       db: sequelize
     }),
     proxy: true,
+    name: "rhythm-reviews",
     cookie: {
       maxAge: 300000,
       httpOnly: true,
