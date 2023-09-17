@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+//Session store, and cookies
 const sess = {
   secret: 'your_secret_key',
   resave: false,
@@ -31,6 +32,7 @@ const sess = {
   },
 };
 
+//In production env, secure cookies
 if (process.env.ENVIRONMENT==='production') {
   app.set('trust proxy', 1);
   sess.cookie.secure = true;
@@ -39,7 +41,7 @@ if (process.env.ENVIRONMENT==='production') {
 
 app.use(session(sess));
 
-
+//Config for handlebars
 const exphbs = expressHandlebars.create({
   defaultLayout: 'main',
   layoutsDir: path.join(__dirname, 'views/layouts'),

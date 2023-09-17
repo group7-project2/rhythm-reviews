@@ -1,3 +1,4 @@
+//Delete review
 document.addEventListener('DOMContentLoaded', () => {
   const deleteReviewLinks = document.querySelectorAll('.delete-review-link');
 
