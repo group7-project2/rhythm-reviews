@@ -16,22 +16,28 @@ app.use(express.json());
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-app.use(
-  session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize
-    }),
-    cookie: {
-      maxAge: 300000,
-      httpOnly: true,
-      secure: false,
-      sameSite: 'strict',
-    },
-  })
-);
+const sess = {
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  }),
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+};
+
+if (process.env.ENVIRONMENT==='production') {
+  app.set('trust proxy', 1);
+  sess.cookie.secure = true;
+  sess.cookie.sameSite = 'none'
+}
+
+app.use(session(sess));
 
 
 const exphbs = expressHandlebars.create({
