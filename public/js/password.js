@@ -1,3 +1,4 @@
+//New password
 const passwordFormHandler = async (event) => {
   event.preventDefault();
 

@@ -23,7 +23,6 @@ router.get('/profile', withAuth, async (req, res) => {
     });
     if (!userData) {
       return res.status(404).json({ message: 'User not found' });
-      
     }
     const user = userData.get({ plain: true });
     const userReviews = await Review.findAll({
@@ -31,6 +30,7 @@ router.get('/profile', withAuth, async (req, res) => {
         user_id: req.session.user_id
       },
     });
+    //Display album reviews by user
     for (const review of userReviews) {
       const album = await getAlbumById(review.album_id)
       try {

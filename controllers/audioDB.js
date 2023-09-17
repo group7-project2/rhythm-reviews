@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+//Api AudioDB
 const audioDbRootUrl = 'https://theaudiodb.p.rapidapi.com';
 const audioDbOptions = {
 	method: 'GET',
@@ -9,12 +10,14 @@ const audioDbOptions = {
 	}
 };
 
+//Album artist search
 async function getAlbumsByArtist (artistName) {
     const searchResult = await fetch(`${audioDbRootUrl}/searchalbum.php?s=${artistName}`, audioDbOptions)
   const albums = await searchResult.json()
   return albums;
 }
 
+//Single Album 
 async function getAlbumById (id) {
     const response = await fetch(`${audioDbRootUrl}/album.php?m=${id}`, audioDbOptions)
     const album = await response.json()
