@@ -22,12 +22,8 @@ app.use(
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize
-    }),
   })
 );
-
 
 const exphbs = expressHandlebars.create({
   defaultLayout: 'main',
