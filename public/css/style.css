@@ -15,3 +15,7 @@ body.homepage-background {
 .hidden {
   display: none;
 }
+
+.shadow {
+  text-shadow: rgb(85, 85, 85) 1px 0px 10px;
+}
