@@ -1,33 +1,29 @@
-<div class="mt-60">
-      <form id="search-form" class="text-center" action="/api/reviews/artist-search" method="GET">
-        <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName" placeholder="Search...">
-        <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700" type="submit">Search</button>
-      </form>
+<div class="flex flex-col items-center justify-center mt-64">
+  <h1 class="text-2xl text-center text-white">Our platform is for music enthusiasts to explore their favorite artists and albums.</h1>
+  <h2 class="text-2xl text-center text-white mb-11">We foster a vibrant community of music lovers eager to engage in meaningful discussions about their favorite albums.</h2>
+    
+  <form id="search-form" class="content-center text-center" action="/api/reviews/artist-search" method="GET">
+    <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName" placeholder="Search...">
+    <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700" type="submit">Search</button>
+  </form>
 
-      {{#if message}}
-      <p class="text-red-600">{{message}}</p>
-      {{/if}}
+  {{#if message}}
+  <p class="text-red-600">{{message}}</p>
+  {{/if}}
 
-      <div class="search-container"></div>
-      <div class="login-create-account-link">
-        {{#if logged_in}}
-        <p class="text-center text-white underline float-left inline break-words mr-1.5 hover:text-blue-700 underline-offset-1 ml-14"><a
-            href="/profile">Profile</a></p>
-        <p class="text-blue-600"></p>
-        <p class="text-center text-white float-left inline break-words mr-1.5">or</p>
-        </p>
-        <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/api/users/logout">Logout</a>
-        </p>
-        {{/if}}
-        {{#unless logged_in}}
-
-        <p class="text-center text-white underline float-left inline break-words mr-1.5 hover:text-blue-700 underline-offset-1 ml-14"><a
-            href="/login">Login</a></p>
-        <p class="text-blue-600"></p>
-        <p class="text-center text-white float-left inline break-words mr-1.5">or</p>
-        </p>
-        <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/register">Create Account</a>
-        </p>
-        {{/unless}}
-      </div>
-    </div>
+  <div class="search-container"></div>
+  <div class="flex items-center justify-center mt-4">
+    {{#if logged_in}}
+    <p class="text-white underline break-words mr-1.5 hover:text-blue-700 underline-offset-1"><a href="/profile">Profile</a></p>
+    <p class="text-blue-600"></p>
+    <p class="text-white break-words mr-1.5">or</p>
+    <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/api/users/logout">Logout</a></p>
+    {{/if}}
+    {{#unless logged_in}}
+    <p class="text-white underline break-words mr-1.5 hover:text-blue-700 underline-offset-1"><a href="/login">Login</a></p>
+    <p class="text-blue-600"></p>
+    <p class="text-white break-words mr-1.5">or</p>
+    <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/register">Create Account</a></p>
+    {{/unless}}
+  </div>
+</div>
