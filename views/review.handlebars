@@ -17,8 +17,8 @@
     {{#unless logged_in}}
     <p
       class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14">
-      <a href="/login">Log in</a></p>
-    <p class="float-left inline break-words mr-1.5 text-white text-center">to leave a review</p>
+      <a href="/login">Login</a></p>
+    <p class="float-left inline break-words mr-1.5 text-white text-center">or</p>
     <p
       class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40">
       <a href="/register">Create Account</a></p>
@@ -52,7 +52,9 @@
   </div>
   {{/if}}
   {{#unless logged_in}}
-  <p class="text-white text-center mt-3"><a href="/login" class="hover:text-blue-700">Log in to leave a review</a></p>
+      <p
+      class="break-words mr-14 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14">
+      <a href="/login">Login to leave a review</a></p>
   {{/unless}}
 </div>
 
