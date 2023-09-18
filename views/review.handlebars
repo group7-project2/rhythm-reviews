@@ -28,7 +28,7 @@
 
 {{#each album}}
 <div class="add-flex-center">
-  <div class="h-auto max-w-xs inline-block m-10 p-4 bg-white/30 rounded w-full selected-album">
+  <div class="inline-block w-full h-auto max-w-xs p-4 m-10 text-white rounded bg-white/30 selected-album">
     <h5>{{strAlbum}}</h5>
     <p>{{intYearReleased}}</p>
     <img style="width:400px" src="{{strAlbumThumb}}" alt="{{strAlbum}}">
@@ -53,14 +53,14 @@
   {{/if}}
   {{#unless logged_in}}
       <p
-      class="break-words mr-14 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14">
+      class="text-center text-white underline break-words mr-14 hover:text-blue-700 underline-offset-1 ml-14">
       <a href="/login">Login to leave a review</a></p>
   {{/unless}}
 </div>
 
 {{#each reviews}}
 <p class="mt-5 text-white">Your review has been posted:</p>
-<div class="px-5 py-5 mt-5 border-2 border-blue-600 rounded-md bg-white">
+<div class="px-5 py-5 mt-5 bg-white border-2 border-blue-600 rounded-md">
   <p class="mb-2 ml-5">Username: {{dataValues.user.dataValues.username}}</p>
   <p class="mb-2 ml-5">Date: {{format_date dataValues.date}}</p>
   <p class="mb-2 ml-5">Title: {{dataValues.title}}</p>
