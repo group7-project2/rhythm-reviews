@@ -16,6 +16,6 @@ body.homepage-background {
   display: none;
 }
 
-.shadow {
+.noShadow {
   text-shadow: rgb(85, 85, 85) 1px 0px 10px;
 }
