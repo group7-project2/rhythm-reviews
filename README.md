@@ -78,12 +78,12 @@ This app is meant to help the user quickly and easily add/update reviews on the 
 ## Screenshots:
 ##
 
-![](#) <br>
-*This is a screenshot of *
+![](https://github.com/group7-project2/rhythm-reviews/blob/jen/readme-add-screenshots/assets/login.png) <br>
+*This is a screenshot of the login page*
 ##
 
-![](#) <br>
-*This is a screenshot of *
+![](https://github.com/group7-project2/rhythm-reviews/blob/jen/readme-add-screenshots/assets/search-results.png) <br>
+*This is a screenshot of search results populated*
 ##
 
 <a id='contact'></a>
