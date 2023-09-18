@@ -1,8 +1,8 @@
-<div class="mt-30 profile-container centered-form">
-    <div class="profile-content profile-form text-black">
-        <div class="profile-content profile-form">
+<div class="mt-10 bg-white/30 p-5 rounded text-center inline-block shadow-white-30 w-4/5 max-w-lg">
+    <div class="text-black">
+        <div class="text-black">
             <h1 class="mb-5 text-center text-white">User Profile</h1>
-            <div class="mb-10 user-info">
+            <div class="mb-10">
                 <h2 class="text-2xl text-white">Welcome, {{username}}!</h2>
                 <p class="text-white">Email: {{email}}</p>
             </div>
@@ -10,25 +10,25 @@
                 <h2 class="mb-3 text-white">Change Password</h2>
                 <div class="mb-3 text-left form-group">
                     <label for="currentPassword" class="mb-1 text-white">Current Password:</label>
-                    <input type="password" id="currentPassword" name="currentPassword" class="form-control" required>
+                    <input type="password" id="currentPassword" name="currentPassword" class="text-left w-full p-2.5 border-solid border-stone-300 border rounded mb-5 form-control" required>
                 </div>
-                <div class="mb-3 text-left form-group">
+                <div class="mb-3 text-left">
                     <label for="newPassword" class="mb-1 text-white">New Password:</label>
-                    <input type="password" id="newPassword" name="newPassword" class="form-control" required>
+                    <input type="password" id="newPassword" name="newPassword" class="text-left w-full p-2.5 border-solid border-stone-300 border rounded mb-5 form-control" required>
                 </div>
-                <div class="mb-3 text-left form-group">
+                <div class="mb-3 text-left">
                     <label for="confirmPassword" class="mb-1 text-white">Confirm New Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="text-left w-full p-2.5 border-solid border-stone-300 border rounded mb-5 form-control" required>
                 </div>
                 <button type="submit"
-                    class="mt-5 text-white py-2.5 px-2.5 rounded border-2 border-white bg-blue-600 hover:bg-blue-700">Save
+                    class="mb-5 text-white py-2.5 px-2.5 rounded border-2 border-white bg-blue-600 hover:bg-blue-700">Save
                     New Password</button>
             </form>
-            <div class="mt-4 user-reviews">
-                <h2 class="text-2xl text-white">Your Album Reviews</h2>
+            <div class="mt-5">
+                <h2 class="text-2xl text-white mb-2">Your Album Reviews</h2>
                 <ul>
                     {{#each reviews}}
-                    <li class="album-review" data-review-id="{{dataValues.id}}">
+                    <li class="p-2.5 rounded border-2 mb-5 bg-white album-review" data-review-id="{{dataValues.id}}">
                         <p class="mb-2 ml-5">Date: {{format_date dataValues.date}}</p>
                         <img src="{{strAlbumThumb}}" alt="{{strAlbum}}">
                         <p class="mb-2 ml-5"><strong><u>Album Title:</u></strong> {{dataValues.title}}</p>
@@ -67,7 +67,7 @@
                     class="mt-5 text-white py-2.5 px-2.5 mr-2 rounded border-2 border-white bg-blue-600 hover:bg-blue-700"
                     id="logout"><a href="/api/users/logout">Logout</a></button>
             </div>
-            <p class="mt-5 text-center text-white underline go-back-link hover:text-blue-700 underline-offset-1"><a
+            <p class="mt-5 text-center text-black underline go-back-link hover:text-blue-700 underline-offset-1"><a
                     href="/">
                     << Go Back to Homepage</a>
             </p>
