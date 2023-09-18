@@ -12,12 +12,11 @@
         {{/unless}}
       </div>
 </div>
-<h1 class="ml-12 text-white text-2xl">Albums</h1>
+<h1 class="ml-12 mb-5 text-white text-2xl">Albums</h1>
 {{#each albums}}
-
-<div class="album-search-result">
+<div class="basis-52 inline-grid ml-5 mb-2 p-8 w-1/6 bg-white bg-opacity-30 rounded-xl album-search-result">
   <h5>{{strAlbum}}</h5>
   <p>{{intYearReleased}}</p>
-  <a href="/api/reviews/album/{{idAlbum}}"><img style="width:200px" src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
+  <a href="/api/reviews/album/{{idAlbum}}"><img src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
 </div>
 {{/each}}
