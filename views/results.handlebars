@@ -4,17 +4,29 @@
     <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700">Search</button>
   </form>
   <div class="login-create-account-link add-flex-center">
-        {{#if logged_in}}
-        <p class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/profile">Profile</a></p><p class="float-left inline break-words mr-1.5 text-white text-center">or</p><p class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40"><a href="/api/users/logout">Logout</a></p>
-        {{/if}}
-        {{#unless logged_in}}
-        <p class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14"><a href="/login">Login</a></p><p class="float-left inline break-words mr-1.5 text-white text-center">or</p><p class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40"><a href="/register">Create Account</a></p>
-        {{/unless}}
-      </div>
+    {{#if logged_in}}
+    <p
+      class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14">
+      <a href="/profile">Profile</a></p>
+    <p class="float-left inline break-words mr-1.5 text-white text-center">or</p>
+    <p
+      class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40">
+      <a href="/api/users/logout">Logout</a></p>
+    {{/if}}
+    {{#unless logged_in}}
+    <p
+      class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14">
+      <a href="/login">Login</a></p>
+    <p class="float-left inline break-words mr-1.5 text-white text-center">or</p>
+    <p
+      class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40">
+      <a href="/register">Create Account</a></p>
+    {{/unless}}
+  </div>
 </div>
 <h1 class="mb-5 ml-12 text-2xl text-white">Albums</h1>
 {{#each albums}}
-<div class="inline-grid w-1/6 p-8 mb-2 ml-5 text-white bg-white basis-52 bg-opacity-30 rounded-xl album-search-result">
+<div class="inline-grid w-1/6 p-8 mb-2 ml-5 text-white bg-white basis-52 bg-opacity-30 rounded-xl hover:scale-110 hover:bg-blue-600 hover:bg-opacity-80 album-search-result">
   <h5>{{strAlbum}}</h5>
   <p>{{intYearReleased}}</p>
   <a href="/api/reviews/album/{{idAlbum}}"><img src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
