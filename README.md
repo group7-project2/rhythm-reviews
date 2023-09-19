@@ -62,7 +62,8 @@ THEN I am signed out of the site\
 
 <a id='installation'></a>
 ## Installation
-To initialize the app, run command lines, "npm i", "mysql -u root -p", and "source/db/schema.sql".  Then open a new terminal window and enter command lines, "npm run seeds" and "npm start".
+There is no need to install anything, please use the link to the deployed app.\
+[Rhythm Reviews](https://rhythm-reviews-8a43a75413f9.herokuapp.com/)
 ##
 
 <a id='usage'></a>
@@ -72,11 +73,9 @@ This app is meant to help the user quickly and easily add/update reviews on the 
 
 <a id='license'></a>
 ## License:  NONE
-##
 
 <a id='screenshots'></a>
 ## Screenshots:
-##
 
 ![](./assets/login.png) <br>
 *This is a screenshot of the login page*
@@ -93,7 +92,7 @@ GitHub URL: https://github.com/group7-project2/rhythm-reviews
 
 ##
 <a id='notes'></a>
-## Notes: 
+## Notes:
 Background image courtesy of [cottonbro studio](https://www.pexels.com/photo/close-up-of-a-man-wearing-eyeglasses-listening-to-music-6700117/)
 
 By: Ashley Zemina, Gil Rosario, Jen Stemkowski, Jason Torrealba
