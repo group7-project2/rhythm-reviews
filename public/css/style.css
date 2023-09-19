@@ -19,3 +19,7 @@ body.homepage-background {
 .noShadow {
   text-shadow: rgb(85, 85, 85) 1px 0px 10px;
 }
+
+/* .darker-drop-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+} */
