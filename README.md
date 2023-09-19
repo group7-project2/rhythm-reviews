@@ -78,21 +78,22 @@ This app is meant to help the user quickly and easily add/update reviews on the 
 ## Screenshots:
 ##
 
-![](https://github.com/group7-project2/rhythm-reviews/blob/jen/readme-add-screenshots/assets/login.png) <br>
+![](./assets/login.png) <br>
 *This is a screenshot of the login page*
 ##
 
-![](https://github.com/group7-project2/rhythm-reviews/blob/jen/readme-add-screenshots/assets/search-results.png) <br>
+![](./assets/search-results.png) <br>
 *This is a screenshot of search results populated*
 ##
 
 <a id='contact'></a>
 ## Contact Me
-Email:  jennifer.stemkowski@gmail.com <br>
-GitHub URL:  https://github.com/jenstem
+To contact us connect through our github repo <br>
+GitHub URL: https://github.com/group7-project2/rhythm-reviews
 
 ##
 <a id='notes'></a>
-## Notes:
-
+## Notes: 
 Background image courtesy of [cottonbro studio](https://www.pexels.com/photo/close-up-of-a-man-wearing-eyeglasses-listening-to-music-6700117/)
+
+By: Ashley Zemina, Gil Rosario, Jen Stemkowski, Jason Torrealba
