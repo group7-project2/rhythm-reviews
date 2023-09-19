@@ -8,20 +8,24 @@
     {{#if logged_in}}
     <p
       class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14">
-      <a href="/profile">Profile</a></p>
+      <a href="/profile">Profile</a>
+    </p>
     <p class="float-left inline break-words mr-1.5 text-white text-center">or</p>
     <p
       class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40">
-      <a href="/api/users/logout">Logout</a></p>
+      <a href="/api/users/logout">Logout</a>
+    </p>
     {{/if}}
     {{#unless logged_in}}
     <p
       class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 ml-14">
-      <a href="/login">Login</a></p>
+      <a href="/login">Login</a>
+    </p>
     <p class="float-left inline break-words mr-1.5 text-white text-center">or</p>
     <p
       class="float-left inline break-words mr-1.5 text-white hover:text-blue-700 text-center underline underline-offset-1 mr-40">
-      <a href="/register">Create Account</a></p>
+      <a href="/register">Create Account</a>
+    </p>
     {{/unless}}
   </div>
 </div>
@@ -31,7 +35,7 @@
   <div class="inline-block w-full h-auto max-w-xs p-4 m-10 text-white rounded bg-white/30 selected-album">
     <h5>{{strAlbum}}</h5>
     <p>{{intYearReleased}}</p>
-    <img style="width:400px" src="{{strAlbumThumb}}" alt="{{strAlbum}}">
+    <img class="w-[400px]" src="{{strAlbumThumb}}" alt="{{strAlbum}}">
   </div>
 </div>
 {{/each}}
@@ -52,9 +56,9 @@
   </div>
   {{/if}}
   {{#unless logged_in}}
-      <p
-      class="text-center text-white underline break-words mr-14 hover:text-blue-700 underline-offset-1 ml-14">
-      <a href="/login">Login to leave a review</a></p>
+  <p class="text-center text-white underline break-words mr-14 hover:text-blue-700 underline-offset-1 ml-14">
+    <a href="/login">Login to leave a review</a>
+  </p>
   {{/unless}}
 </div>
 
