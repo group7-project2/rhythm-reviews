@@ -1,10 +1,14 @@
 <div class="flex flex-col items-center justify-center mt-64">
-  <h1 class="text-2xl text-center text-white [text-shadow:_2px_2px_4px_rgb(0_0_0_/_100%)]">Our platform is for music enthusiasts to explore their favorite artists and albums,</h1>
-  <h2 class="text-2xl text-center text-white mb-11 darker-drop-shadow">by sharing reviews and engaging in meaningful discussions about their favorite albums.</h2>
-    
+  <h1 class="text-2xl text-center text-white [text-shadow:_2px_2px_4px_rgb(0_0_0_/_100%)]">Our platform is for music
+    enthusiasts to explore their favorite artists and albums,</h1>
+  <h2 class="text-2xl text-center text-white mb-11 darker-drop-shadow">by sharing reviews and engaging in meaningful
+    discussions about their favorite albums.</h2>
+
   <form id="search-form" class="content-center text-center" action="/api/reviews/artist-search" method="GET">
-    <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName" placeholder="Search your favorite artist...">
-    <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700" type="submit">Search</button>
+    <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName"
+      placeholder="Search your favorite artist...">
+    <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700"
+      type="submit">Search</button>
   </form>
 
   {{#if message}}
@@ -14,13 +18,15 @@
   <div class="search-container"></div>
   <div class="flex items-center justify-center mt-4">
     {{#if logged_in}}
-    <p class="text-white underline break-words mr-1.5 hover:text-blue-700 underline-offset-1"><a href="/profile">Profile</a></p>
+    <p class="text-white underline break-words mr-1.5 hover:text-blue-700 underline-offset-1"><a
+        href="/profile">Profile</a></p>
     <p class="text-blue-600"></p>
     <p class="text-white break-words mr-1.5">or</p>
     <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/api/users/logout">Logout</a></p>
     {{/if}}
     {{#unless logged_in}}
-    <p class="text-white underline break-words mr-1.5 hover:text-blue-700 underline-offset-1"><a href="/login">Login</a></p>
+    <p class="text-white underline break-words mr-1.5 hover:text-blue-700 underline-offset-1"><a href="/login">Login</a>
+    </p>
     <p class="text-blue-600"></p>
     <p class="text-white break-words mr-1.5">or</p>
     <p class="text-white underline hover:text-blue-700 underline-offset-1"><a href="/register">Create Account</a></p>
@@ -28,7 +34,7 @@
   </div>
 </div>
 <div class="flex flex-col items-center justify-between min-h-screen mt-64">
-<footer class="fixed bottom-0 items-center w-full py-4 text-center text-white bg-gray-800">
+  <footer class="fixed bottom-0 items-center w-full py-4 text-center text-white bg-gray-800">
     © 2023 Rhythm Reviews Site, developed by Jen Stemkowski, Ashley Zemina, Gilberto Rosario, Jason Torrealba
-</footer>
+  </footer>
 </div>
