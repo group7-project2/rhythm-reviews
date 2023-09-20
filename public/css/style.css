@@ -1,10 +1,3 @@
-body.homepage-background {
-  background-image: url("../assets/rr-homepage-2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
 .search-container,
 .add-flex-center {
   display: flex;
@@ -18,4 +11,10 @@ body.homepage-background {
 
 .noShadow {
   text-shadow: rgb(85, 85, 85) 1px 0px 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background-image: url("../assets/rr-homepage-2.jpg");
+  }
 }
