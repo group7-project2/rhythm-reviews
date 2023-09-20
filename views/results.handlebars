@@ -1,6 +1,6 @@
 <div class="mt-60">
   <form id="search-form" class="text-center" action="/api/reviews/artist-search" method="GET">
-    <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName" placeholder="Search your favorite artist...">
+    <input id="search-input" class="p-2.5 w-[300px]" type="text" name="artistName" placeholder="Search...">
     <button class="text-white py-2.5 px-2.5 rounded border-2 border-white hover:bg-blue-700">Search</button>
   </form>
   <div class="login-create-account-link add-flex-center">
@@ -25,10 +25,9 @@
   </div>
 </div>
 <h1 class="mb-5 ml-12 text-2xl text-white">Albums</h1>
-
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
   {{#each albums}}
-    <div class="p-4 mb-4 text-white bg-white bg-opacity-30 rounded-xl hover:scale-110 hover:bg-blue-600 hover:bg-opacity-80 album-search-result">
+    <div class="ml-4 mr-4 p-4 mb-4 text-white bg-white bg-opacity-30 rounded-xl hover:scale-110 hover:bg-blue-600 hover:bg-opacity-80 album-search-result">
       <h5>{{strAlbum}}</h5>
       <p>{{intYearReleased}}</p>
       <a href="/api/reviews/album/{{idAlbum}}"><img src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
