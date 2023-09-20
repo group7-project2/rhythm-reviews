@@ -25,10 +25,13 @@
   </div>
 </div>
 <h1 class="mb-5 ml-12 text-2xl text-white">Albums</h1>
-{{#each albums}}
-<div class="inline-grid w-1/6 p-8 mb-2 ml-5 text-white bg-white basis-52 bg-opacity-30 rounded-xl hover:scale-110 hover:bg-blue-600 hover:bg-opacity-80 album-search-result">
-  <h5>{{strAlbum}}</h5>
-  <p>{{intYearReleased}}</p>
-  <a href="/api/reviews/album/{{idAlbum}}"><img src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+  {{#each albums}}
+    <div class="p-4 mb-4 text-white bg-white bg-opacity-30 rounded-xl hover:scale-110 hover:bg-blue-600 hover:bg-opacity-80 album-search-result">
+      <h5>{{strAlbum}}</h5>
+      <p>{{intYearReleased}}</p>
+      <a href="/api/reviews/album/{{idAlbum}}"><img src="{{strAlbumThumb}}" alt="{{strAlbum}}"></a>
+    </div>
+  {{/each}}
 </div>
-{{/each}}
