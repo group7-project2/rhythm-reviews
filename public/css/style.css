@@ -17,4 +17,8 @@
   body {
     background-image: url("../assets/rr-homepage-2.jpg");
   }
+
+  .logo {
+    display: none;
+  }
 }
