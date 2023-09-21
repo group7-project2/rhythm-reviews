@@ -13,6 +13,12 @@
   text-shadow: rgb(85, 85, 85) 1px 0px 10px;
 }
 
+@media only screen and (max-width: 599px) {
+  .logo {
+    width: 30%;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   body {
     background-image: url("../assets/rr-homepage-2.jpg");
