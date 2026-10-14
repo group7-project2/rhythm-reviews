@@ -1,3 +1,5 @@
+Sample project
+
 # Rhythm Reviews
 
 ## Table of Contents
