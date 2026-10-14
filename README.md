@@ -1,4 +1,4 @@
- Sample project
+ My Sample project
 
 # Rhythm Reviews
 
